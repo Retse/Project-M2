@@ -1,11 +1,46 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<section class=" hero container">
+  <h1 class="title">HIKER</h1>
+</section>
+<section class="log-signup container">
+  <div class="sign-up container">
+    <form method="POST" action="/index">
+      <div class="field" >
+        <label>username</label>
+        <input type="text" name="username"/>
+      </div>
+
+      <div class="field" >
+        <label>password</label>
+        <input type="password" name="password"/>
+      </div>
+
+      <div class="field submit">
+        <button type="submit">Signup</button>
+      </div>
+    </form>
+  </div>  
+  <div class="log-in container ">
+    <form method="POST" action="/index">
+      <div class="field" >
+        <label>username</label>
+        <input type="text" name="username"/>
+      </div>
+
+      <div class="field" >
+        <label>password</label>
+        <input type="password" name="password"/>
+      </div>
+
+      <div class="field submit">
+        <button type="submit">Log-in</button>
+      </div>
+   </form>
+   </div> 
+</section>
+<section class="feed container">
+  <% event.forEach(item => { %>
+  <%- include partials/eventPartial.ejs %>
+  <% }) %>
+</section>
+<section class="footer container">
+</section>
