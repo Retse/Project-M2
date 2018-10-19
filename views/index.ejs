@@ -2,7 +2,33 @@
   <h1 class="title">HIKER</h1>
 </section>
 <section class="log-signup container">
-  <a href="#">Sign Up</a>
+  <div class="sign-up container">
+    <form method="POST" action="/index">
+      <div class="field" >
+        <label>username</label>
+        <input type="text" name="username"/>
+      </div>
+
+      <div class="field" >
+        <label>email</label>
+        <input type="text" name="email"/>
+      </div>
+
+      <div class="field" >
+        <label>password</label>
+        <input type="password" name="password"/>
+      </div>
+
+      <div class="field" >
+        <label>Date of birth</label>
+        <input type="date" name="birth-date"/>
+      </div>
+
+      <div class="field submit">
+        <button type="submit">Signup</button>
+      </div>
+    </form>
+  </div>  
   <div class="log-in container ">
     <form method="POST" action="/index">
       <div class="field" >
