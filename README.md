@@ -15,7 +15,6 @@ Community based App that joins hiking enthusiasts for trekking trips around the 
 - **events list** - As a user I want to see all the events available so that I can choose which ones I want to attend
 - **events find** - As a user I want to find the events acording to my search preferences so that I can see events that are relevant for me
 - **events create** - As a user I want to create an event so that I can invite others to attend
-- **events delete** - As a guide (user) I want to delete an event that I created so that other users know that it is not taking place
 - **events detail** - As a user I want to see the event details and attendee list of one event so that I can decide if I want to attend 
 - **events attend** - As a user I want to be able to attend to event so that the organizers can count me in
 - **events unattend** - As a user I want to be able to cancel my participation in an event so that other users know if I am going to attend or not
@@ -43,6 +42,7 @@ Events
 - send an email to participants if the event is cancelled
 - send a remainder to participants of incoming events
 - cancel a user participation on an event
+- delete an event so that other users know that it is not taking place
 
 Geo Location:
 - add geolocation to events when creating
@@ -115,7 +115,7 @@ Responsive
 - GET /events/:id if user is logged in
   - renders the event detail page
   - includes the list of attendees
-  - attend button if user is or not attending yet
+  - attend button if user is or not attending yet  
 
 - POST /events/:id if user is logged in
   - unattend/attend an event action 
