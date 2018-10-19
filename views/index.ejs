@@ -10,8 +10,18 @@
       </div>
 
       <div class="field" >
+        <label>email</label>
+        <input type="text" name="email"/>
+      </div>
+
+      <div class="field" >
         <label>password</label>
         <input type="password" name="password"/>
+      </div>
+
+      <div class="field" >
+        <label>Date of birth</label>
+        <input type="date" name="birth-date"/>
       </div>
 
       <div class="field submit">
@@ -39,6 +49,7 @@
 </section>
 <section class="feed container">
  <!-- partial to be included -->
+ <%- include partials/eventPartial.ejs %>
 </section>
 <section class="footer container">
 </section>
