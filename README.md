@@ -12,6 +12,7 @@ Community based App that joins hiking enthusiasts for trekking trips around the 
 - **sign up** - As a user I want to sign up on the webpage so that I can see all the events that I could attend
 - **login** - As a user I want to be able to log in on the webpage so that I can get back to my account
 - **logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
+- **create a profile** - As a user I want to cerate my profile so that I can to join to the diferents activities
 - **events list** - As a user I want to see all the events available so that I can choose which ones I want to attend
 - **events find** - As a user I want to find the events acording to my search preferences so that I can see events that are relevant for me
 - **events create** - As a user I want to create an event so that I can invite others to attend
@@ -82,6 +83,9 @@ Responsive
   - closes the session
   - redirect to homepage
 
+- GET /profile/index if user is looged in
+  - render porfile
+
 - GET / if user is logged in
   - bring users data from database
   - render index with user data + event list + create form (ocult-toggle) + find form (ocult-toggle)
@@ -139,6 +143,7 @@ Event model
 
 ```
 title: String
+image: String
 guide: ObjectID
 date: Date
 location
