@@ -72,7 +72,7 @@ app.use('/events', eventsRouter);
 
 app.use((req, res, next) => {
   res.status(404);
-  res.render('not-found');
+  res.render('error');
 });
 
 // NOTE: requires a views/error.ejs template
