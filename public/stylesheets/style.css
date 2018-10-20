@@ -30,6 +30,8 @@ body {
 
 
 
+/* ------------------------------------- Home Page View ----------------------------------*/
+
 /* ------------ Section Hero -------------*/
 
 .hero {
@@ -100,4 +102,28 @@ body {
 
   .sign-up p {
     color: rgba(223, 215, 215, 0.938);
+  }
+
+
+
+  /* ------------------------------------------- Profile View ----------------------------------------*/
+
+  .profile-info {
+    padding: 20px 20px 10px 20px;
+    border-bottom: grey 0.5px solid;
+
+  } 
+
+  .profile-info img {
+    border-radius: 70%;
+  }
+
+  .profile-info div {
+    padding: 20px;
+    margin-left: 5px;
+    width: 60%;
+  }
+  
+  .profile-info p {
+    margin: 8px 0;
   }

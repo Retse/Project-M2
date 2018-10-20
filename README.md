@@ -83,8 +83,6 @@ Responsive
   - closes the session
   - redirect to homepage
 
-- GET /profile/index if user is looged in
-  - render porfile
 
 - GET / if user is logged in
   - bring users data from database
