@@ -201,6 +201,9 @@ form .submit button {
   border-radius: 30px;
   cursor: pointer;
   margin: 15px auto;
+
+}
+
 .error-page h3{
   background-color: rgba(120, 121, 113, 0.5);
   height: 40px;
