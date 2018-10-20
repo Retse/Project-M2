@@ -33,7 +33,6 @@ router.post('/signup', middlewares.requireAnon, (req, res, next) => {
       newUser.save()
         .then(() => {
           // guardamos el usuario en la session
-          console.log('hola');
           req.session.currentUser = newUser;
           // redirect siempre com barra
           res.redirect('/events');
@@ -44,9 +43,8 @@ router.post('/signup', middlewares.requireAnon, (req, res, next) => {
 });
 
 // Ruta post login
-router.post('/login', middlewares.requireUser, (req, res, next) => {
+router.post('/login', middlewares.userLoggedIn, (req, res, next) => {
   const { email, password } = req.body;
-
   if (!email || !password) {
     req.flash('error', 'Username and password can\'t be empty');
     return res.redirect('/');
