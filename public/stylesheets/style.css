@@ -130,10 +130,9 @@ body {
 
 
 
-/* ------------------------------------------- Error View 404 ------------------------------------*/
+/* ------------------------------------------- Errors Views ------------------------------------*/
 
 .error-page {
-  background-image: url("/images/404.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -147,4 +146,20 @@ body {
   height: 40px;
   padding: 10px;
   margin-top: 50px;
+}
+
+
+
+
+/* ------------ Error View 500 ----------------*/
+
+.error-500 {
+  background-image: url("/images/shutterstock_302234213-copy.jpg");
+  
+}
+
+/* ------------ Error View 404 ----------------*/
+.error-404 { 
+  background-image: url("/images/404.jpg");
+
 }
