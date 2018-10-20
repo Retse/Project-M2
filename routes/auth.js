@@ -33,6 +33,7 @@ router.post('/signup', middlewares.requireAnon, (req, res, next) => {
       newUser.save()
         .then(() => {
           // guardamos el usuario en la session
+          console.log('hola');
           req.session.currentUser = newUser;
           // redirect siempre com barra
           res.redirect('/events');
