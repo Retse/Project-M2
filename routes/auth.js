@@ -8,7 +8,7 @@ const saltRounds = 10;
 const router = express.Router();
 
 // Ruta post signup
-router.post('/index', middlewares.requireAnon, (req, res, next) => {
+router.post('/signup', middlewares.requireAnon, (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;
@@ -35,7 +35,7 @@ router.post('/index', middlewares.requireAnon, (req, res, next) => {
           // guardamos el usuario en la session
           req.session.currentUser = newUser;
           // redirect siempre com barra
-          res.redirect('/events/index');
+          res.redirect('/events');
         })
         .catch(next);
     })
@@ -43,16 +43,17 @@ router.post('/index', middlewares.requireAnon, (req, res, next) => {
 });
 
 // Ruta post login
-router.post('/index', middlewares.requireAnon, (req, res, next) => {
-  const { username, password } = req.body;
+router.post('/login', middlewares.requireUser, (req, res, next) => {
+  const { email, password } = req.body;
 
-  if (!username || !password) {
+  if (!email || !password) {
     req.flash('error', 'Username and password can\'t be empty');
     return res.redirect('/');
   }
 
-  User.findOne({ username })
+  User.findOne({ email })
     .then((user) => {
+      console.log(user);
       if (!user) {
         req.flash('error', 'Username or password are incorrect');
         return res.redirect('/');
@@ -61,7 +62,7 @@ router.post('/index', middlewares.requireAnon, (req, res, next) => {
       if (bcrypt.compareSync(password, user.password)) {
         // Añadir el usuario a la sesion si ok
         req.session.currentUser = user;
-        res.redirect('/events/index');
+        res.redirect('/events');
       } else {
         req.flash('error', 'Username or password are incorrect');
         res.redirect('/');
