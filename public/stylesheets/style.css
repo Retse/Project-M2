@@ -169,30 +169,30 @@ p.btn a {
   display: none;
 }
 
-form.filter-form {
+.filter-form {
   margin: 0 auto;
   text-align: center;
   padding: 10px 0px;
 }
-form label {
+.filter-form label {
 	margin-bottom: 10px;
   font-style: bold;
   color: #CFEDC4;
 
 }
 
-form input {
+.filter-form input {
   padding: 2px;
   font-size: 12px;
   border-radius: 30px;
   width: 70%;
 }
 
-form .submit {
+.filter-form .submit {
   padding-top: 5px;
 }
 
-form .submit button {
+.filter-form .submit button {
   padding: 5px 20px;
   text-align: center;
   font-size: 12px;

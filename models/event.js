@@ -24,7 +24,8 @@ const eventSchema = new Schema({
     type: String,
     enum: ['easy', 'medium', 'hard']
   },
-  duration: String
+  duration: Number,
+  distancia: Number
 });
 
 const Event = mongoose.model('Event', eventSchema);
