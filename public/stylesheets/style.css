@@ -241,3 +241,11 @@ p.btn a {
   background-image: url("/images/404.jpg");
 
 }
+
+
+/*-------------------- Flash messages Partial  ----------------------*/
+.flash-messages {
+  color: white;
+  margin-top: 10px;
+  font-size: 18px;
+}
