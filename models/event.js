@@ -20,12 +20,12 @@ const eventSchema = new Schema({
     type: ObjectId,
     ref: 'User'
   }],
-  dificultyLevel: {
+  difficultyLevel: {
     type: String,
     enum: ['easy', 'medium', 'hard']
   },
   duration: Number,
-  distancia: Number
+  distance: Number
 });
 
 const Event = mongoose.model('Event', eventSchema);

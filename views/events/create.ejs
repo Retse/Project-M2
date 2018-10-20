@@ -1,0 +1,62 @@
+<section id="events-create">
+  <form class="events-form" method="POST" action="/events/create">
+    <div class="form-field" >
+      <label>Title</label>
+      <input type="text" name="title" placeholder="introduce event name"/>
+    </div>
+    <div class="form-field" >
+      <label>Image</label>
+      <input type="text" name="image" placeholder="image url"/>
+    </div>
+    <div class="form-field" >
+      <label>Date</label>
+      <input type="date" name="date"/>
+    </div>
+    <div class="form-field" >
+      <label>City</label>
+      <input type="text" name="city" placeholder="introduce city"/>
+    </div>
+    <div class="form-field" >
+      <label>Region</label>
+      <input type="text" name="region" placeholder="introduce region"/>
+     </div>
+    <div class="form-field" >
+      <label>Country</label>
+      <input type="text" name="country" placeholder="introduce country"/>
+    </div>
+    <div class="form-field" >
+      <label>Starting Point</label>
+      <input type="text" name="starting-point" placeholder="introduce route's starting point"/>
+    </div>
+    <div class="form-field" >
+      <label>Description</label>
+      <input type="text" name="description" placeholder="introduce event's description"/>
+    </div>
+    <div class="form-field" >
+      <label>Difficulty level</label>
+      <div class="radio-input">
+        <label for="easy">Easy</label>
+        <input type="radio" id="easy" name="difficulty" value="easy"/>
+      </div>
+      <div class="radio-input">
+        <label for="medium ">Medium</label>
+        <input type="radio" id="medium" name="difficulty" value="medium"/>
+      </div>
+      <div class="radio-input">
+        <label for="hard ">Hard</label>
+        <input type="radio" id="hard" name="difficulty" value="hard"/>
+      </div> 
+    </div>
+    <div class="form-field" >
+      <label>Duration</label>
+      <input type="number" name="duration" placeholder="introduce time in minutes"/>
+    </div>
+    <div class="form-field" >
+      <label>Distance</label>
+      <input type="number" name="distance" placeholder="introduce distance in km"/>
+    </div>
+    <div class="field submit">
+      <button type="submit">Create</button>
+    </div>
+  </form>
+</section>

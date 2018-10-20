@@ -181,30 +181,30 @@ p.btn a {
 
 
 
-.filter-form {
+.events-form {
   margin: 0 auto;
   text-align: center;
   padding: 10px 0px;
 }
-.filter-form label {
+.events-form label {
 	margin-bottom: 10px;
   font-style: bold;
   color: #CFEDC4;
 
 }
 
-.filter-form input {
+.events-form input {
   padding: 2px;
   font-size: 12px;
   border-radius: 30px;
   width: 70%;
 }
 
-.filter-form .submit {
+.events-form .submit {
   padding-top: 5px;
 }
 
-.filter-form .submit button {
+.events-form .submit button {
   padding: 5px 20px;
   text-align: center;
   font-size: 12px;
@@ -213,8 +213,9 @@ p.btn a {
   border-radius: 30px;
   cursor: pointer;
   margin: 15px auto;
-
 }
+
+
 
 .error-page h3{
   background-color: rgba(120, 121, 113, 0.5);
@@ -222,9 +223,6 @@ p.btn a {
   padding: 10px;
   margin-top: 50px;
 }
-
-
-
 
 /* ------------ Error View 500 ----------------*/
 

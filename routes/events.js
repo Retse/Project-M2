@@ -17,4 +17,17 @@ router.get('/', middlewares.requireUser, (req, res, next) => {
     });
 });
 
+router.get('/create', middlewares.requireUser, (req, res, next) => {
+  res.render('events/create');
+});
+router.post('/create', middlewares.requireUser, (req, res, next) => {
+  const { title, image, guide, date, city, region, country, startingPoint, description, difficultyLevel, duration, distance } = req.body;
+  const newEvent = new Event({ title, image, guide, date, city, region, country, startingPoint, description, difficultyLevel, duration, distance });
+  newEvent.save()
+    .then(() => {
+      res.redirect('/events/');
+    })
+    .catch(next);
+});
+
 module.exports = router;
