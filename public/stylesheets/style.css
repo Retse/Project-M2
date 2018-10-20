@@ -17,16 +17,17 @@ body {
 
 /*------------- Flex Utilities -------------------*/
 
-.container             { display        : flex       ;}
-.justify-cont-center   { justify-content: center     ;}
-.justify-cont-start    { justify-content: flex-star  ;}
-.justify-cont-end      { justify-content: flex-end   ;}
-.justify-items-center  { justify-items  : center     ;}
-.align-self-center     { align-self     : center     ;}
-.align-items-center    { align-items    : center     ;}
-.align-items-end       { align-items    : flex-start ;}
-.flex-row              { flex-direction : row        ;}
-.flex-column           { flex-direction : column     ;}
+.container              { display        : flex         ;}
+.justify-cont-center    { justify-content: center       ;}
+.justify-cont-start     { justify-content: flex-star    ;}
+.justify-cont-end       { justify-content: flex-end     ;}
+.justify-cont-around    { justify-content: space-around ;}
+.justify-items-center   { justify-items  : center       ;}
+.align-self-center      { align-self     : center       ;}
+.align-items-center     { align-items    : center       ;}
+.align-items-end        { align-items    : flex-start   ;}
+.flex-row               { flex-direction : row          ;}
+.flex-column            { flex-direction : column       ;}
 
 
 
@@ -143,10 +144,6 @@ body {
 }
 
 /* ----------- Section events/index -----------*/
-div.buttons {
-  display: flex;
-  justify-content: space-around;
-}
 
 p.btn {
   color: #537048;
