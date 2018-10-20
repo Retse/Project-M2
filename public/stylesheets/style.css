@@ -1,8 +1,79 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-a {
-  color: #00B7FF;
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+/*------------- Flex Utilities -------------------*/
+
+.container             { display        : flex       ;}
+.justify-cont-center   { justify-content: center     ;}
+.justify-cont-start    { justify-content: flex-star  ;}
+.justify-cont-end      { justify-content: flex-end   ;}
+.justify-items-center  { justify-items  : center     ;}
+.align-self-center     { align-self     : center     ;}
+.align-items-center    { align-items    : center     ;}
+.align-items-end       { align-items    : flex-start ;}
+.flex-row              { flex-direction : row        ;}
+.flex-column           { flex-direction : column     ;}
+
+
+
+
+/* ------------ Section Hero -------------*/
+
+.hero {
+  background-image: url('../images/cropped-medio-ambiente.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 500px;
+}
+
+.hero h1 {
+  font-size: 40px;
+  color: white;
+  padding: 10px;
+  background-color: rgba(76, 77, 66, 0.5);
+  border-radius: 8%;
+}
+
+
+
+
+/* ---------------- Section log-signup -----------*/
+
+.log-signup {
+  background-color: rgb(72, 125, 48);
+  width: 100%;
+}
+
+
+.log-signup form {
+  width: 100%;
+} 
+
+.log-signup .field {
+  width: 85%;
+}
+
+.log-signup label {
+  margin-left: 30px;
+}
+.log-signup  input {
+    width : 85%  ;
+    height: 30px ;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    
 }
