@@ -6,7 +6,11 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
 
-mongoose.connect('mongodb://localhost/hiker');
+mongoose.connect('mongodb://localhost/hiker', {
+  keepAlive: true,
+  useNewUrlParser: true,
+  reconnectTries: Number.MAX_VALUE
+});
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
