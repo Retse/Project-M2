@@ -33,7 +33,7 @@ body {
 /* ------------ Section Hero -------------*/
 
 .hero {
-  background-image: url('../images/cropped-medio-ambiente.jpg');
+  background-image: url('../images/hawaii-group-hike.jpg');
   background-size: cover;
   width: 100%;
   height: 500px;
@@ -41,6 +41,7 @@ body {
 
 .hero h1 {
   font-size: 40px;
+  margin-bottom: 150px;
   color: white;
   padding: 10px;
   background-color: rgba(76, 77, 66, 0.5);
@@ -58,9 +59,24 @@ body {
 }
 
 
+
+
 .log-signup form {
   width: 100%;
 } 
+
+.log-signup .submit {
+    background-color: rgb(186, 223, 160);
+    border-radius: 9px;
+    width: 120px;
+    height: 25px;
+    margin: 15px 0;
+    padding: 10px;
+}
+
+.log-signup button {
+  color:  rgb(72, 125, 48);
+}
 
 .log-signup .field {
   width: 85%;
@@ -68,12 +84,13 @@ body {
 
 .log-signup label {
   margin-left: 30px;
+  color: white;
 }
-.log-signup  input {
-    width : 85%  ;
-    height: 30px ;
-    border-radius: 10px;
-    margin-bottom: 20px;
 
-    
+.log-signup  input {
+  width : 85%  ;
+  height: 30px ;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
+
