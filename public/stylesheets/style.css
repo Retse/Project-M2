@@ -131,10 +131,9 @@ body {
 
 
 
-/* ------------------------------------------- Error View 404 ------------------------------------*/
+/* ------------------------------------------- Errors Views ------------------------------------*/
 
 .error-page {
-  background-image: url("/images/404.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -170,30 +169,30 @@ p.btn a {
   display: none;
 }
 
-form.filter-form {
+.filter-form {
   margin: 0 auto;
   text-align: center;
   padding: 10px 0px;
 }
-form label {
+.filter-form label {
 	margin-bottom: 10px;
   font-style: bold;
   color: #CFEDC4;
 
 }
 
-form input {
+.filter-form input {
   padding: 2px;
   font-size: 12px;
   border-radius: 30px;
   width: 70%;
 }
 
-form .submit {
+.filter-form .submit {
   padding-top: 5px;
 }
 
-form .submit button {
+.filter-form .submit button {
   padding: 5px 20px;
   text-align: center;
   font-size: 12px;
@@ -202,9 +201,28 @@ form .submit button {
   border-radius: 30px;
   cursor: pointer;
   margin: 15px auto;
+
+}
+
 .error-page h3{
   background-color: rgba(120, 121, 113, 0.5);
   height: 40px;
   padding: 10px;
   margin-top: 50px;
+}
+
+
+
+
+/* ------------ Error View 500 ----------------*/
+
+.error-500 {
+  background-image: url("/images/shutterstock_302234213-copy.jpg");
+  
+}
+
+/* ------------ Error View 404 ----------------*/
+.error-404 { 
+  background-image: url("/images/404.jpg");
+
 }
