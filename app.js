@@ -33,17 +33,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/events', eventsRouter);
 
-<<<<<<< HEAD
 app.use((req, res, next) => {
   res.status(404);
   res.render('not-found');
-=======
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  res.status(404);
-  res.render('error');
-  // next(createError(404));
->>>>>>> b159fae9a9a2cf9ec5c0d30283303325b40d3427
 });
 
 // NOTE: requires a views/error.ejs template

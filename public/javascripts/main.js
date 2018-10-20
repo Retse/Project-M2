@@ -10,6 +10,8 @@ function main () {
       e.currentTarget.innerText = 'Hide Filters';
     }
   }
+  if(buttonFilter){
   buttonFilter.addEventListener('click', hideForm);
+  }
 };
 window.addEventListener('load', main);
