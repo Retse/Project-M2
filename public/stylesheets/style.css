@@ -58,39 +58,46 @@ body {
   width: 100%;
 }
 
+  .log-signup form {
+    width: 100%;
+  } 
+
+  .log-signup .log-in .submit {
+      background-color: rgb(186, 223, 160);
+      border-radius: 14px;
+      width: 120px;
+      height: 25px;
+      margin: 15px 0;
+      padding: 15px;
+  }
+
+  .log-signup .log-in button {
+    color:  rgb(72, 125, 48);
+  }
+
+  .log-signup .field {
+    width: 85%;
+  }
+
+  .log-signup label {
+    margin-left: 30px;
+    color: white;
+  }
+
+  .log-signup  input {
+    width : 85%  ;
+    height: 30px ;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
 
 
+  
 
-.log-signup form {
-  width: 100%;
-} 
+  .sign-up button {
+    color:white;
+  }
 
-.log-signup .submit {
-    background-color: rgb(186, 223, 160);
-    border-radius: 9px;
-    width: 120px;
-    height: 25px;
-    margin: 15px 0;
-    padding: 10px;
-}
-
-.log-signup button {
-  color:  rgb(72, 125, 48);
-}
-
-.log-signup .field {
-  width: 85%;
-}
-
-.log-signup label {
-  margin-left: 30px;
-  color: white;
-}
-
-.log-signup  input {
-  width : 85%  ;
-  height: 30px ;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
+  .sign-up p {
+    color: rgba(223, 215, 215, 0.938);
+  }

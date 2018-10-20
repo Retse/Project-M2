@@ -5,12 +5,12 @@
 
     <form class=" log-in  form container  flex-column  align-items-center " method="POST" action="/index">
 
-      <div class="container justify-cont-center align-items-center  submit">
+      <div class="container  justify-cont-center  align-items-center  submit">
         <button type="submit">Login</button>
       </div>
 
       <div class=" field  container  flex-column " >
-        <label>username</label>
+        <label>e-mail</label>
         <input class=" align-self-center " type="text" name="username"/>
       </div>
 
@@ -20,36 +20,37 @@
       </div>
 
    </form>
-  <div class=" sign-up  container">
 
-    <form method="POST" action="/index">
+    <form class="sign-up  container  form flex-column  align-items-center" method="POST" action="/index">
 
-      <div class="field" >
+      <div class="submit ">
+        <p> Don't you have an acount yet? <button type="submit">Signup</button></p>
+      </div>
+
+      <div class="field  container  flex-column " >
         <label>username</label>
-        <input type="text" name="username"/>
+        <input class=" align-self-center " type="text" name="username"/>
       </div>
 
-      <div class=" field " >
+      <div class=" field container  flex-column" >
         <label>email</label>
-        <input type="text" name="email"/>
+        <input class=" align-self-center " type="text" name="email"/>
       </div>
 
-      <div class=" field " >
+      <div class=" field container  flex-column" >
         <label>password</label>
-        <input type="password" name="password"/>
+        <input class=" align-self-center " type="password" name="password"/>
       </div>
 
-      <div class=" field " >
+      <div class=" field container  flex-column" >
         <label>Date of birth</label>
-        <input type="date" name="birth-date"/>
+        <input class=" align-self-center " type="date" name="birth-date"/>
       </div>
 
-      <div class=" field  submit ">
-        <button type="submit">Signup</button>
-      </div>
+     
 
     </form>
-  </div>   
+ 
 </section>
 <section class="feed container">
  <!-- partial to be included -->
