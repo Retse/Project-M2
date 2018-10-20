@@ -18,6 +18,7 @@ mongoose.connect('mongodb://localhost/hiker', {
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
+const eventsRouter = require('./routes/events');
 
 const app = express();
 
@@ -68,6 +69,7 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
+app.use('/events', eventsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

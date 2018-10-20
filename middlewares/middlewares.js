@@ -2,7 +2,6 @@ function requireUser (req, res, next) {
   const user = req.session.currentUser;
 
   if (!user) {
-    return res.redirect('/auth/login');
   } else {
     next();
   }
@@ -12,13 +11,24 @@ function requireAnon (req, res, next) {
   const user = req.session.currentUser;
 
   if (user) {
-    return res.redirect('/auth/profile');
+    return res.redirect('/');
   } else {
     next();
   }
 }
 
+function userLoggedIn (req, res, next) {
+  const user = req.session.currentUser;
+  if (!user) {
+    return res.redirect('/');
+  }
+  next();
+}
+
 module.exports = {
+
   requireUser,
-  requireAnon
+  requireAnon,
+  userLoggedIn
+
 };
