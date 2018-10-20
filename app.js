@@ -4,6 +4,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const flash = require('connect-flash');
 
 mongoose.connect('mongodb://localhost/hiker', {
   keepAlive: true,
@@ -12,6 +15,7 @@ mongoose.connect('mongodb://localhost/hiker', {
 });
 
 const indexRouter = require('./routes/index');
+const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
 const eventsRouter = require('./routes/events');
 
@@ -29,13 +33,54 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// sesions
+app.use(session({
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  }),
+  secret: 'some-string',
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000
+  }
+}));
+
+app.use(flash());
+
+app.use((req, res, next) => {
+  app.locals.currentUser = req.session.currentUser;
+  res.locals.currentUser = req.session.currentUser;
+  next();
+});
+
+app.use((req, res, next) => {
+  // We extract the messages separately cause we call req.flash() we'll clean the object flash.
+  res.locals.errorMessages = req.flash('error');
+  res.locals.infoMessages = req.flash('info');
+  res.locals.dangerMessages = req.flash('danger');
+  res.locals.successMessages = req.flash('success');
+  res.locals.warningMessages = req.flash('warning');
+  next();
+});
+
 app.use('/', indexRouter);
+app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/events', eventsRouter);
 
+<<<<<<< HEAD
 app.use((req, res, next) => {
   res.status(404);
   res.render('not-found');
+=======
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  res.status(404);
+  res.render('error');
+  // next(createError(404));
+>>>>>>> 8e60c8000af9852061e4011e04d075ddb7616f74
 });
 
 // NOTE: requires a views/error.ejs template
