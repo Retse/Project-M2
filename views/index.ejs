@@ -21,11 +21,12 @@
 
    </form>
 
-    <form class="sign-up  container  form flex-column  align-items-center" method="POST" action="/auth/signup">
+    <div class="signup-toggle container">
+      <p class="align-self-center  "> Don't you have an acount yet? <a>Signup</a></p>
+    </div>
 
-      <div class="submit ">
-        <p> Don't you have an acount yet? <button type="submit">Signup</button></p>
-      </div>
+    <form class="sign-up hidden container  form flex-column  align-items-center" method="POST" action="/auth/signup">
+
 
       <div class="field  container  flex-column " >
         <label>username</label>
@@ -47,7 +48,9 @@
         <input class=" align-self-center " type="date" name="birth-date"/>
       </div>
 
-     
+      <div class="submit ">
+        <button type="submit">Signup</button>
+      </div>
 
     </form>
  
