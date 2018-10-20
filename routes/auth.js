@@ -12,9 +12,10 @@ router.post('/signup', middlewares.requireAnon, (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;
+  const dateOfBirth = req.body.birthdate;
 
-  if (!username || !password || !email) {
-    req.flash('error', 'Username, email or password cannot be empty');
+  if (!username || !password || !email || !dateOfBirth) {
+    req.flash('error', 'All fields must be completed');
     return res.redirect('/');
   }
 
@@ -28,7 +29,7 @@ router.post('/signup', middlewares.requireAnon, (req, res, next) => {
       const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = bcrypt.hashSync(password, salt);
 
-      const newUser = new User({ username, email, password: hashedPassword });
+      const newUser = new User({ username, email, password: hashedPassword, dateOfBirth });
 
       newUser.save()
         .then(() => {
@@ -43,16 +44,16 @@ router.post('/signup', middlewares.requireAnon, (req, res, next) => {
 });
 
 // Ruta post login
-router.post('/login', middlewares.requireAnon, (req, res, next) => {
-  const { username, password } = req.body;
-
-  if (!username || !password) {
+router.post('/login', middlewares.userLoggedIn, (req, res, next) => {
+  const { email, password } = req.body;
+  if (!email || !password) {
     req.flash('error', 'Username and password can\'t be empty');
     return res.redirect('/');
   }
 
-  User.findOne({ username })
+  User.findOne({ email })
     .then((user) => {
+      console.log(user);
       if (!user) {
         req.flash('error', 'Username or password are incorrect');
         return res.redirect('/');

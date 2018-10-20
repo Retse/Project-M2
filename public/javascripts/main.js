@@ -14,4 +14,5 @@ function main () {
     buttonFilter.addEventListener('click', hideForm);
   }
 };
+
 window.addEventListener('load', main);

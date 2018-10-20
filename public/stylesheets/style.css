@@ -13,7 +13,15 @@ body {
 /*----------------- General CSS -------------------*/
 body {
   background-color: rgb(72, 125, 48);
+
 }
+
+.hidden {
+  display: none;
+}
+
+
+
 
 /*------------- Flex Utilities -------------------*/
 
@@ -99,13 +107,22 @@ body {
   
 
   .sign-up button {
-    color:white;
+    color: rgb(72, 125, 48);
+    background-color: rgb(186, 223, 160);
+    border-radius: 14px;
+    width: 120px;
+    height: 25px;
+    margin: 15px 0;
+    padding: 15px;
   }
 
   .sign-up p {
     color: rgba(223, 215, 215, 0.938);
   }
 
+  .signup-toggle {
+    color: white;
+  }
 
 
   /* ------------------------------------------- Profile View ----------------------------------------*/
@@ -162,9 +179,7 @@ p.btn a {
 
 /* ----------- form -----------*/
 
-.hidden {
-  display: none;
-}
+
 
 .filter-form {
   margin: 0 auto;
@@ -222,4 +237,12 @@ p.btn a {
 .error-404 { 
   background-image: url("/images/404.jpg");
 
+}
+
+
+/*-------------------- Flash messages Partial  ----------------------*/
+.flash-messages {
+  color: white;
+  margin-top: 10px;
+  font-size: 18px;
 }

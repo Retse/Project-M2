@@ -6,7 +6,8 @@ const ObjectId = mongoose.Types.ObjectId;
 const middlewares = require('../middlewares/middlewares');
 
 // ruta a events/index - renderiza listado eventos
-router.get('/', middlewares.userLoggedIn, (req, res, next) => {
+// router.get('/', middlewares.userLoggedIn, (req, res, next) => {
+router.get('/', middlewares.requireUser, (req, res, next) => {
   Event.find()
     .then(events => {
       res.render('events/index', { events });
