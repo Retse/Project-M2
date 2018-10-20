@@ -10,6 +10,10 @@ body {
   padding: 0;
 }
 
+li, ul {
+  list-style: none;
+}
+
 /*----------------- General CSS -------------------*/
 body {
   background-color: rgb(72, 125, 48);
@@ -36,6 +40,28 @@ body {
 .align-items-end        { align-items    : flex-start   ;}
 .flex-row               { flex-direction : row          ;}
 .flex-column            { flex-direction : column       ;}
+
+
+
+/* ----------------------------------- NavBar -----------------------------------------*/
+
+.navbar {
+  background-color: rgb(220, 221, 219);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+ 
+}
+.nav-div {
+  
+  width: 100%;
+}
+
+
+
+.navbar .link-container{
+  width: 25%;
+}
 
 
 
@@ -161,6 +187,9 @@ body {
 }
 
 /* ----------- Section events/index -----------*/
+#events-index {
+  margin-bottom: 60px;
+}
 
 p.btn {
   color: #537048;
