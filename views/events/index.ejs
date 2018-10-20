@@ -25,13 +25,11 @@
         </div>
         <p class="card-date">Date: <%= event.date %></p>
         <p class="card-location">Location:
-          <% event.location.forEach(location =>{ %>
-            <ul>
-              <li>City: <%= location.city  %></li>
-              <li>Region: <%=  location.region %></li>
-              <li>Country: <%= location.country  %></li>
-            </ul>
-          <% }) %>
+          <ul>
+            <li>City: <%= event.location.city  %></li>
+            <li>Region: <%=  event.location.region %></li>
+            <li>Country: <%= event.location.country  %></li>
+          </ul>
         </p>
     </article>
   <% }) %>
