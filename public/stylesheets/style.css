@@ -16,8 +16,8 @@ li, ul {
 
 /*----------------- General CSS -------------------*/
 body {
-  background-color: rgb(72, 125, 48);
-
+  background-color: #537048;
+  color:#B9D3AF;
 }
 
 .hidden {
@@ -129,9 +129,6 @@ body {
     margin-bottom: 20px;
   }
 
-
-  
-
   .sign-up button {
     color: rgb(72, 125, 48);
     background-color: rgb(186, 223, 160);
@@ -151,49 +148,38 @@ body {
   }
 
 
-  /* ------------------------------------------- Profile View ----------------------------------------*/
 
-  .profile-info {
-    padding: 20px 20px 10px 20px;
-    border-bottom: grey 0.5px solid;
+/* ------------------------------------------- Profile View ----------------------------------------*/
 
-  } 
+.profile-info {
+  padding: 20px 20px 10px 20px;
+  border-bottom: grey 0.5px solid;
 
-  .profile-info img {
-    border-radius: 70%;
-  }
+} 
 
-  .profile-info div {
-    padding: 20px;
-    margin-left: 5px;
-    width: 60%;
-  }
-
-  .profile-info p {
-    margin: 8px 0;
-  }
-
-
-
-/* ------------------------------------------- Errors Views ------------------------------------*/
-
-.error-page {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 700px;
-  color: white;
+.profile-info img {
+  border-radius: 70%;
 }
 
-/* ----------- Section events/index -----------*/
+.profile-info div {
+  padding: 20px;
+  margin-left: 5px;
+  width: 60%;
+}
+
+.profile-info p {
+  margin: 8px 0;
+}
+
+/* ---------------------------------------- Section events/index -------------------------------------*/
+
 #events-index {
   margin-bottom: 60px;
 }
 
 p.btn {
   color: #537048;
-  background-color: #CFEDC4;
+  background-color: rgb(207, 237, 196);
   padding: 5px 0px;
   border-radius: 30px;
   width: 35%;
@@ -206,9 +192,7 @@ p.btn a {
 
 }
 
-/* ----------- form -----------*/
-
-
+/* ----------- form ----------- */
 
 .events-form {
   margin: 0 auto;
@@ -226,7 +210,8 @@ p.btn a {
   padding: 2px;
   font-size: 12px;
   border-radius: 30px;
-  width: 70%;
+  width: 250px;
+  height: 25px;
 }
 
 .events-form .submit {
@@ -244,7 +229,25 @@ p.btn a {
   margin: 15px auto;
 }
 
+input.description {
+  height: 150px;
+}
+.radio-input input{
+  width: 15px;;
+}
 
+
+
+/* ------------------------------------------- Errors Views ------------------------------------*/
+
+.error-page {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 700px;
+  color: white;
+}
 
 .error-page h3{
   background-color: rgba(120, 121, 113, 0.5);

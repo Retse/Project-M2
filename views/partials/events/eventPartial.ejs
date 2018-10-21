@@ -1,15 +1,17 @@
 <article class="event-card">
   <h2 class="card-title"><%= event.title %></h2>
+  <a href="/events/<%= event._id %>">See more</a>
   <div class="image-container">
     <img src="<%= event.image %>" alt="event image" class="card-image">
   </div>
-  <p class="card-date">Date: <%= event.date %></p>
-  <p class="card-location">Location:
-      <ul>
-        <li>City: <%= event.location.city  %></li>
-        <li>Region: <%= event.location.region %></li>
-        <li>Country: <%= event.location.country  %></li>
-      </ul>
-  </p>
-  <a href="/events/<%= event._id %>">See more</a>
+  <div class="container flex-column">
+  <p class="location-list">Location:</p>
+  <ul class="location-list">
+    <li>City: <%= event.location.city  %></li>
+    <li>Region: <%= event.location.region %></li>
+    <li>Country: <%= event.location.country  %></li>
+  </ul>
+</div>
+<p class="card-date">Date: <%= event.date %></p>
+
 </article>

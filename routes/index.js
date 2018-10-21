@@ -4,7 +4,7 @@ const Event = require('../models/event');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  Event.find().limit(3)
+  Event.find().limit(2)
     .then(events => {
       res.render('index', { events });
     })
