@@ -18,20 +18,7 @@
 
   <div class="events-list">
   <% events.forEach(event =>{ %>
-    <article class="event-card">
-        <h2 class="card-title"><%= event.title %></h2>
-        <div class="image-container">
-          <img src="<%= event.image %>" alt="event image" class="card-image">
-        </div>
-        <p class="card-date">Date: <%= event.date %></p>
-        <p class="card-location">Location:
-            <ul>
-              <li>City: <%= event.location.city  %></li>
-              <li>Region: <%= event.location.region %></li>
-              <li>Country: <%= event.location.country  %></li>
-            </ul>
-        </p>
-    </article>
+    <%- include ../partials/events/eventPartial.ejs %>
   <% }) %>
   </div>
 </section>
