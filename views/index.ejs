@@ -57,8 +57,9 @@
 </section>
 <section class="feed container">
  <!-- partial to be included -->
-
- <%- include partials/events/eventPartial.ejs %>
+  <% events.forEach( event => { %>
+    <%- include partials/events/eventPartial.ejs %>
+  <% }) %>   
 </section>
 <section class="footer container">
 </section>

@@ -30,4 +30,13 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
+router.get('/:_id', middlewares.requireUser, (req, res, next) => {
+  const id = req.params.id;
+  Event.findById(id)
+    .then((event) => {
+      res.render('events/event-detail', { event });
+    })
+    .catch(next);
+});
+
 module.exports = router;
