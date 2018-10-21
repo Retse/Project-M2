@@ -16,8 +16,9 @@ li, ul {
 
 /*----------------- General CSS -------------------*/
 body {
-  background-color: #537048;
-  color:#B9D3AF;
+ background-color: rgb(72, 125, 48);
+ 
+
 }
 
 .hidden {
@@ -66,7 +67,7 @@ body {
 
 
 
-/* ------------------------------------- Home Page View ----------------------------------*/
+/* ------------------------------------- Home Page View --------------------------------------*/
 
 /* ------------ Section Hero -------------*/
 
@@ -89,7 +90,7 @@ body {
 
 
 
-/* ---------------- Section log-signup -----------*/
+/* ---------------- Section log-signup ------------------*/
 
 .log-signup {
   /* background-color: rgb(72, 125, 48); */
@@ -109,7 +110,7 @@ body {
       padding: 15px;
   }
 
-  .log-signup .log-in button {
+  .log-signup button {
     color:  rgb(72, 125, 48);
   }
 
@@ -129,8 +130,8 @@ body {
     margin-bottom: 20px;
   }
 
-  .sign-up button {
-    color: rgb(72, 125, 48);
+
+  .sign-up .submit {
     background-color: rgb(186, 223, 160);
     border-radius: 14px;
     width: 120px;
@@ -148,6 +149,20 @@ body {
   }
 
 
+/*--------------------   Feed Section  ------------------*/
+
+feed {
+
+}
+
+
+
+
+  /* ------------------------------------------- Profile View ----------------------------------------*/
+
+  .profile-info {
+    padding: 20px 20px 10px 20px;
+    border-bottom: grey 0.5px solid;
 
 /* ------------------------------------------- Profile View ----------------------------------------*/
 
@@ -161,26 +176,27 @@ body {
   border-radius: 70%;
 }
 
-.profile-info div {
-  padding: 20px;
-  margin-left: 5px;
-  width: 60%;
-}
+
+
+/* ------------------------------------------- Errors Views ------------------------------------*/
 
 .profile-info p {
   margin: 8px 0;
 }
 
-/* ---------------------------------------- Section events/index -------------------------------------*/
 
+
+
+
+/* --------------------------------- Section events/index ----------------------------------------*/
 #events-index {
   margin-bottom: 60px;
 }
 
 p.btn {
   color: #537048;
-  background-color: rgb(207, 237, 196);
   padding: 5px 0px;
+  border: 1.5px grey solid;
   border-radius: 30px;
   width: 35%;
   text-align: center;
@@ -192,7 +208,18 @@ p.btn a {
 
 }
 
-/* ----------- form ----------- */
+.events-list {
+  padding-bottom: 50px;
+}
+
+.buttons-container {
+  background-color:rgb(220, 221, 219);
+  box-shadow: 4px 4px 2px rgb(46, 44, 43);
+}
+
+/* ----------- form -----------*/
+
+
 
 .events-form {
   margin: 0 auto;
@@ -256,12 +283,20 @@ input.description {
   margin-top: 50px;
 }
 
+
+
+
+
 /* ------------ Error View 500 ----------------*/
 
 .error-500 {
   background-image: url("/images/shutterstock_302234213-copy.jpg");
   
 }
+
+
+
+
 
 /* ------------ Error View 404 ----------------*/
 .error-404 { 
@@ -270,9 +305,32 @@ input.description {
 }
 
 
+
+
+
 /*-------------------- Flash messages Partial  ----------------------*/
 .flash-messages {
   color: white;
   margin-top: 10px;
   font-size: 18px;
 }
+
+.alert {
+  text-align: center;
+}
+
+
+
+
+/*------------------------  Events Partials ---------------------------*/
+
+.events-list {
+  color: rgb(186, 223, 160);
+
+}
+
+.event-card {
+  
+  padding-top: 20px;
+}
+

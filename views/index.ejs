@@ -1,8 +1,8 @@
 <section class=" hero  container  justify-cont-center  align-items-center">
   <h1 class="  title  ">HIKER</h1>
 </section>
+<%- include partials/notifications.ejs %> 
 <section class=" log-signup  container  flex-column  align-items-center ">
-
     <form class=" log-in  form container  flex-column  align-items-center " method="POST" action="/auth/login">
 
       <div class="container  justify-cont-center  align-items-center  submit">
@@ -48,7 +48,7 @@
         <input class=" align-self-center " type="date" name="birthdate"/>
       </div>
 
-      <div class="submit ">
+      <div class="submit  container  justify-cont-center  align-items-center">
         <button type="submit">Signup</button>
       </div>
 

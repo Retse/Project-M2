@@ -29,7 +29,7 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
 });
 
 router.get('/:_id', middlewares.requireUser, (req, res, next) => {
-  const id = req.params.id;
+  const id = req.params._id;
   Event.findById(id)
     .then((event) => {
       res.render('events/event-detail', { event });
