@@ -21,8 +21,8 @@ router.get('/create', middlewares.requireUser, (req, res, next) => {
   res.render('events/create');
 });
 router.post('/create', middlewares.requireUser, (req, res, next) => {
-  const { title, image, guide, date, city, region, country, startingPoint, description, difficultyLevel, duration, distance } = req.body;
-  const newEvent = new Event({ title, image, guide, date, city, region, country, startingPoint, description, difficultyLevel, duration, distance });
+  const { title, image, date, city, region, country, startingPoint, description, difficultyLevel, duration, distance } = req.body;
+  const newEvent = new Event({ title, image, date, location: { city, region, country }, startingPoint, description, difficultyLevel, duration, distance });
   newEvent.save()
     .then(() => {
       res.redirect('/events/');
