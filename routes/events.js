@@ -46,7 +46,8 @@ router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
 
   Event.findById(eventId)
     .then(event => {
-      if (event.participants.includes(userId)) {
+      console.log(userId);
+      if (event.participants.includes(`${userId}`)) {
         event.participants.push(ObjectId(userId));
         event.save()
           .then(item => {
