@@ -47,13 +47,13 @@ app.use(session({
   }
 }));
 
+app.use(flash());
+
 app.use((req, res, next) => {
   app.locals.currentUser = req.session.currentUser;
   res.locals.currentUser = req.session.currentUser;
   next();
 });
-
-app.use(flash());
 
 app.use((req, res, next) => {
   // We extract the messages separately cause we call req.flash() we'll clean the object flash.
