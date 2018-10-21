@@ -33,8 +33,31 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
 router.get('/:_id', middlewares.requireUser, (req, res, next) => {
   const id = req.params._id;
   Event.findById(id)
+    .populate('participants')
     .then((event) => {
       res.render('events/event-detail', { event });
+    })
+    .catch(next);
+});
+
+router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
+  const userId = req.session.currentUser._id;
+  const eventId = req.params._id; // verificar
+
+  Event.findById(eventId)
+    .then(event => {
+      if (event.participants.includes(userId)) {
+        event.participants.push(ObjectId(userId));
+        event.save()
+          .then(item => {
+            req.flash('info', 'Congrats, you have joined the event!');
+            res.redirect(`/events/${eventId}`);
+          })
+          .catch(next);
+      } else {
+        req.flash('info', 'You cant join the event more than once!');
+        res.redirect(`/events/${eventId}`);
+      }
     })
     .catch(next);
 });
