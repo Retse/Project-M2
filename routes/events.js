@@ -32,16 +32,16 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
 // hay que meter el dato en la sesión para luego renderizar la vista en función del dato
 router.post('/list', middlewares.requireUser, (req, res, next) => {
   const city = req.body.city;
-  req.session.
+  // req.session.
   // Event.find({ location: { city: city } })
     // .then( events => {
       res.redirect('/events/list');
     // })
     // .catch(next);
-})
-router.get('/list', middlewares.requireUser, (req, res, next) => { 
+});
+router.get('/list', middlewares.requireUser, (req, res, next) => {
   Event.find()
-    .then( events => {
+    .then(events => {
       res.render('events/list', { events });
     })
     .catch(next);
