@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Event = require('../models/event');
-// const User = require('../models/user');
+const User = require('../models/user');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const middlewares = require('../middlewares/middlewares');
@@ -45,8 +45,11 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
     description,
     difficultyLevel,
     duration,
-    distance });
+    distance
+  });
 
+  const guideId = req.session.currentUser._id;
+  newEvent.guide.push(ObjectId(guideId));
   newEvent.save()
     .then(() => {
       res.redirect('/events/');
@@ -54,19 +57,14 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
-// hay que meter el dato en la sesión para luego renderizar la vista en función del dato
+// hay que meter el dato en la sesión para luego renderizar la vista en función del dato (filtraje)
 router.post('/list', middlewares.requireUser, (req, res, next) => {
-  const { city } = req.body;
-  // req.session.
-  // Event.find({ location: { city: city } })
-  // .then( events => {
+  req.session.city = req.body.city;
   res.redirect('/events/list');
-  // })
-  // .catch(next);
 });
-
 router.get('/list', middlewares.requireUser, (req, res, next) => {
-  Event.find()
+  const city = req.session.city;
+  Event.find({ 'location.city': city })
     .then(events => {
       res.render('events/list', { events });
     })
@@ -80,6 +78,7 @@ router.get('/:_id', (req, res, next) => {
 
   Event.findById(id)
     .populate('participants')
+    .populate('guide')
     .then((event) => {
       res.render('events/event-detail', { event });
     })
