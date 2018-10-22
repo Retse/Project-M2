@@ -46,9 +46,9 @@ router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
 
   Event.findById(eventId)
     .then(event => {
-      console.log(userId);
-      if (event.participants.includes(`${userId}`)) {
-        event.participants.push(ObjectId(userId));
+      console.log(!event.participants.includes(userId));
+      if (!event.participants.includes(ObjectId(userId))) {
+        event.participants.push(ObjectId(userId)); // hay que agregar un foreach https://stackoverflow.com/questions/19737408/mongoose-check-if-objectid-exists-in-an-array
         event.save()
           .then(item => {
             req.flash('info', 'Congrats, you have joined the event!');
