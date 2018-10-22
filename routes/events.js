@@ -19,8 +19,22 @@ router.get('/', middlewares.requireUser, (req, res, next) => {
 router.get('/create', middlewares.requireUser, (req, res, next) => {
   res.render('events/create');
 });
+
 router.post('/create', middlewares.requireUser, (req, res, next) => {
-  const { title, image, date, city, region, country, startingPoint, description, difficultyLevel, duration, distance } = req.body;
+  const {
+    title,
+    image,
+    date,
+    city,
+    region,
+    country,
+    startingPoint,
+    description,
+    difficultyLevel,
+    duration,
+    distance
+  } = req.body;
+
   const newEvent = new Event({ title, image, date, location: { city, region, country }, startingPoint, description, difficultyLevel, duration, distance });
   newEvent.save()
     .then(() => {
@@ -31,7 +45,7 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
 
 // hay que meter el dato en la sesión para luego renderizar la vista en función del dato
 router.post('/list', middlewares.requireUser, (req, res, next) => {
-  const city = req.body.city;
+  const { city } = req.body;
   // req.session.
   // Event.find({ location: { city: city } })
   // .then( events => {
@@ -48,8 +62,11 @@ router.get('/list', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
-router.get('/:_id', middlewares.requireUser, (req, res, next) => {
+router.get('/:_id', (req, res, next) => {
   const id = req.params._id;
+
+  // const { _id: id } = req.params
+
   Event.findById(id)
     .populate('participants')
     .then((event) => {
