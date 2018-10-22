@@ -21,3 +21,20 @@
     <p class="event-info">Distance: <%= event.distance %> km</p>
   </article>
 </section>
+        <li>Participants: 
+            <% event.participants.forEach(user => { %>
+              <span><a href=""><%= user.username %></a>,&emsp;</span> 
+            <% }) %>
+        </li>
+      </ul>
+  </p>
+
+  <form class=" join form container  flex-column  align-items-center " method="POST" action='/events/<%= event._id %>/join'>
+    <div class="container  link-container">
+        <li><button type="submit">Join the hike</button></li> 
+        <%- include ../partials/notifications.ejs %> 
+    </div>
+  </form>
+</article>
+</section>
+

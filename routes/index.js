@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Event = require('../models/event');
+const middlewares = require('../middlewares/middlewares');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
