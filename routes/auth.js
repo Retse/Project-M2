@@ -3,29 +3,24 @@ const bcrypt = require('bcrypt');
 
 const User = require('../models/user');
 const middlewares = require('../middlewares/middlewares');
+const flashMessages = require('../middlewares/notifications');
 
 const saltRounds = 10;
 const router = express.Router();
 
 // Ruta post signup
 router.post('/signup', middlewares.requireAnon, (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
-
-  // const { username, password, email, dateOfBirth } = req.body;
-
-  const email = req.body.email;
-  const dateOfBirth = req.body.birthdate;
+  const { username, password, email, dateOfBirth } = req.body;
 
   if (!username || !password || !email || !dateOfBirth) {
-    req.flash('error', 'All fields must be completed');
+    req.flash('error', flashMessages.allFieldsCompleteError);
     return res.redirect('/');
   }
 
   User.findOne({ username } || { email })
     .then((user) => {
       if (user) {
-        req.flash('error', 'Username already taken');
+        req.flash('error', flashMessages.userNameTaken);
         return res.redirect('/');
       }
 
@@ -51,14 +46,14 @@ router.post('/login', middlewares.userLoggedIn, (req, res, next) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    req.flash('error', "Username and password can't be empty");
+    req.flash('error', flashMessages.loginEmptyField);
     return res.redirect('/');
   }
 
   User.findOne({ email })
     .then((user) => {
       if (!user) {
-        req.flash('error', 'Username or password are incorrect');
+        req.flash('error', flashMessages.loginIncorrectField);
         return res.redirect('/');
       }
 
@@ -67,7 +62,7 @@ router.post('/login', middlewares.userLoggedIn, (req, res, next) => {
         req.session.currentUser = user;
         return res.redirect('/events');
       } else {
-        req.flash('error', 'Username or password are incorrect');
+        req.flash('error', flashMessages.loginIncorrectField);
         res.redirect('/');
       }
     })
@@ -82,7 +77,6 @@ router.post('/logout', middlewares.requireUser, (req, res, next) => {
       return res.redirect('/');
     }
   });
-  
 });
 
 module.exports = router;
