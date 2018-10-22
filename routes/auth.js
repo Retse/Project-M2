@@ -53,7 +53,6 @@ router.post('/login', middlewares.userLoggedIn, (req, res, next) => {
 
   User.findOne({ email })
     .then((user) => {
-      console.log(user);
       if (!user) {
         req.flash('error', 'Username or password are incorrect');
         return res.redirect('/');

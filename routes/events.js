@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Event = require('../models/event');
-const User = require('../models/user');
+// const User = require('../models/user');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const middlewares = require('../middlewares/middlewares');
@@ -34,12 +34,13 @@ router.post('/list', middlewares.requireUser, (req, res, next) => {
   const city = req.body.city;
   // req.session.
   // Event.find({ location: { city: city } })
-    // .then( events => {
-      res.redirect('/events/list');
-    // })
-    // .catch(next);
+  // .then( events => {
+  res.redirect('/events/list');
+  // })
+  // .catch(next);
 });
-router.get('/list', middlewares.requireUser, (req, res, next) => {
+
+router.get('/list', middlewares.requireUser, (req, res, next) => { 
   Event.find()
     .then(events => {
       res.render('events/list', { events });
@@ -59,12 +60,14 @@ router.get('/:_id', middlewares.requireUser, (req, res, next) => {
 
 router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
   const userId = req.session.currentUser._id;
-  const eventId = req.params._id; // verificar
+  const eventId = req.params._id;
 
   Event.findById(eventId)
     .then(event => {
-      console.log(userId);
-      if (event.participants.includes(`${userId}`)) {
+      const isInArray = event.participants.some(participant => {
+        return participant.equals(userId);
+      });
+      if (!isInArray) {
         event.participants.push(ObjectId(userId));
         event.save()
           .then(item => {
