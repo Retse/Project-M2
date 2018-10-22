@@ -13,6 +13,7 @@ router.post('/signup', middlewares.requireAnon, (req, res, next) => {
   const { username, password, email, dateOfBirth } = req.body;
 
   if (!username || !password || !email || !dateOfBirth) {
+    console.log(username, password, email, dateOfBirth);
     req.flash('error', flashMessages.allFieldsCompleteError);
     return res.redirect('/');
   }
