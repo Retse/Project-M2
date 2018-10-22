@@ -6,6 +6,8 @@ const userSchema = new Schema({
   password: String,
   email: String,
   dateOfBirth: Date,
+  aboutme: String,
+  quote: String,
   routes: [{
     type: ObjectId,
     ref: 'Event'
