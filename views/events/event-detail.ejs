@@ -1,16 +1,26 @@
 <section id="event-detail">
-<article class="event-card">
-  <a href="../">Go back</a>
-  <h2 class="card-title"><%= event.title %></h2>
-  <div class="image-container">
-    <img src="<%= event.image %>" alt="event image" class="card-image">
-  </div>
-  <p class="card-date">Date: <%= event.date %></p>
-  <p class="card-location">Location:
+  <article class="event">
+    <a href="../events/">Go back</a>
+    <h2 class="event-title"><%= event.title %></h2>
+    <div class="event-image">
+      <img src="<%= event.image %>" alt="event image" class="card-image">
+    </div>
+    <p class="event-info">Guía: <%= event.guide %></p>
+    <p class="event-info date">Date: <%= event.date %></p>
+    <p class="event-info">Location:</p>
       <ul>
         <li>City: <%= event.location.city  %></li>
         <li>Region: <%= event.location.region %></li>
         <li>Country: <%= event.location.country  %></li>
+      </ul>
+    <p class="event-info">Starting point: <%= event.startingPoint %></p>
+    <p class="event-info"><%= event.description %></p>
+    <p class="event-info">Participants</p>
+    <p class="event-info">Difficulty level: <%= event.difficultyLevel %></p>
+    <p class="event-info">Duration: <%= event.duration %> minutes</p>
+    <p class="event-info">Distance: <%= event.distance %> km</p>
+  </article>
+</section>
         <li>Participants: 
             <% event.participants.forEach(user => { %>
               <span><a href=""><%= user.username %></a>,&emsp;</span> 

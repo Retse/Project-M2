@@ -1,14 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const Event = require('../models/event');
+const User = require('../models/user');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const middlewares = require('../middlewares/middlewares');
 
-// ruta a events/index - renderiza listado eventos
-// router.get('/', middlewares.userLoggedIn, (req, res, next) => {
 router.get('/', middlewares.requireUser, (req, res, next) => {
-  Event.find()
+  Event.find().sort({ date: 1 })
     .then(events => {
       res.render('events/index', { events });
     })
@@ -26,6 +25,24 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
   newEvent.save()
     .then(() => {
       res.redirect('/events/');
+    })
+    .catch(next);
+});
+
+// hay que meter el dato en la sesión para luego renderizar la vista en función del dato
+router.post('/list', middlewares.requireUser, (req, res, next) => {
+  const city = req.body.city;
+  req.session.
+  // Event.find({ location: { city: city } })
+    // .then( events => {
+      res.redirect('/events/list');
+    // })
+    // .catch(next);
+})
+router.get('/list', middlewares.requireUser, (req, res, next) => { 
+  Event.find()
+    .then( events => {
+      res.render('events/list', { events });
     })
     .catch(next);
 });

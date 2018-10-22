@@ -4,8 +4,8 @@ const Event = require('../models/event');
 const middlewares = require('../middlewares/middlewares');
 
 /* GET home page. */
-router.get('/', middlewares.userLoggedIn, (req, res, next) => {
-  Event.find().limit(3)
+router.get('/', (req, res, next) => {
+  Event.find().limit(2)
     .then(events => {
       res.render('index', { events });
     })

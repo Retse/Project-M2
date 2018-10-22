@@ -1,15 +1,15 @@
 <article class="event-card">
-  <h2 class="card-title"><%= event.title %></h2>
-  <div class="image-container">
+  <div class="container justify-cont-around">
     <img src="<%= event.image %>" alt="event image" class="card-image" width="375px">
-  </div>
-  <p class="card-date">Date: <%= event.date %></p>
-  <p class="card-location">Location:
-      <ul>
+    <div class="container flex-column">
+      <h3 class="card"><%= event.title %></h3><span></span>
+      <ul class="card location-list align-items-center">
         <li>City: <%= event.location.city  %></li>
         <li>Region: <%= event.location.region %></li>
         <li>Country: <%= event.location.country  %></li>
       </ul>
-  </p>
-  <a href="/events/<%= event._id %>">See more</a>
+      <p class="card">Date: <%= event.date.toDateString() %></p>
+      <a class="card" href="/events/<%= event._id %>">See more</a>
+    </div>
+  </div>
 </article>
