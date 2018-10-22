@@ -5,6 +5,7 @@ const User = require('../models/user');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const middlewares = require('../middlewares/middlewares');
+const flashMessages = require('../middlewares/notifications');
 
 router.get('/', middlewares.requireUser, (req, res, next) => {
   Event.find().sort({ date: 1 })
@@ -44,11 +45,16 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
     description,
     difficultyLevel,
     duration,
+<<<<<<< HEAD
     distance
   });
 
   const guideId = req.session.currentUser._id;
   newEvent.guide.push(ObjectId(guideId));
+=======
+    distance });
+
+>>>>>>> f6d2f1586de4e6a4e932cc1b7eb31ba7956485eb
   newEvent.save()
     .then(() => {
       res.redirect('/events/');
@@ -61,9 +67,15 @@ router.post('/list', middlewares.requireUser, (req, res, next) => {
   req.session.city = req.body.city;
   res.redirect('/events/list');
 });
+<<<<<<< HEAD
 router.get('/list', middlewares.requireUser, (req, res, next) => {
   const city = req.session.city;
   Event.find({ 'location.city': city })
+=======
+
+router.get('/list', middlewares.requireUser, (req, res, next) => {
+  Event.find()
+>>>>>>> f6d2f1586de4e6a4e932cc1b7eb31ba7956485eb
     .then(events => {
       res.render('events/list', { events });
     })
@@ -97,12 +109,12 @@ router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
         event.participants.push(ObjectId(userId));
         event.save()
           .then(item => {
-            req.flash('info', 'Congrats, you have joined the event!');
+            req.flash('info', flashMessages.joinEvent);
             res.redirect(`/events/${eventId}`);
           })
           .catch(next);
       } else {
-        req.flash('info', 'You cant join the event more than once!');
+        req.flash('info', flashMessages.cantJoinEvent);
         res.redirect(`/events/${eventId}`);
       }
     })
