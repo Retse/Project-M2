@@ -7,6 +7,7 @@ const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
+const middlewares = require('./middlewares/middlewares');
 
 mongoose.connect('mongodb://localhost/hiker', {
   keepAlive: true,
@@ -47,25 +48,11 @@ app.use(session({
   }
 }));
 
+app.use(middlewares.setUserToLocal);
+
+// flash
 app.use(flash());
-
-app.use((req, res, next) => {
-  app.locals.currentUser = req.session.currentUser;
-  res.locals.currentUser = req.session.currentUser;
-  next();
-});
-
-// app.use(setUserToLocals);
-
-app.use((req, res, next) => {
-  // We extract the messages separately cause we call req.flash() we'll clean the object flash.
-  res.locals.errorMessages = req.flash('error');
-  res.locals.infoMessages = req.flash('info');
-  res.locals.dangerMessages = req.flash('danger');
-  res.locals.successMessages = req.flash('success');
-  res.locals.warningMessages = req.flash('warning');
-  next();
-});
+app.use(middlewares.flashMessages);
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
