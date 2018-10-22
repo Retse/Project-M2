@@ -11,6 +11,9 @@ const router = express.Router();
 router.post('/signup', middlewares.requireAnon, (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
+
+  // const { username, password, email, dateOfBirth } = req.body;
+
   const email = req.body.email;
   const dateOfBirth = req.body.birthdate;
 
@@ -46,8 +49,9 @@ router.post('/signup', middlewares.requireAnon, (req, res, next) => {
 // Ruta post login
 router.post('/login', middlewares.userLoggedIn, (req, res, next) => {
   const { email, password } = req.body;
+
   if (!email || !password) {
-    req.flash('error', 'Username and password can\'t be empty');
+    req.flash('error', "Username and password can't be empty");
     return res.redirect('/');
   }
 
@@ -61,7 +65,7 @@ router.post('/login', middlewares.userLoggedIn, (req, res, next) => {
       if (bcrypt.compareSync(password, user.password)) {
         // Añadir el usuario a la sesion si ok
         req.session.currentUser = user;
-        res.redirect('/events');
+        return res.redirect('/events');
       } else {
         req.flash('error', 'Username or password are incorrect');
         res.redirect('/');
@@ -71,8 +75,14 @@ router.post('/login', middlewares.userLoggedIn, (req, res, next) => {
 });
 
 router.post('/logout', middlewares.requireUser, (req, res, next) => {
-  req.session.destroy((err) => next(err));
-  res.redirect('/');
+  req.session.destroy((err) => {
+    if (err) {
+      next(err);
+    } else {
+      return res.redirect('/');
+    }
+  });
+  
 });
 
 module.exports = router;
