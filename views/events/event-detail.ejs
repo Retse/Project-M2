@@ -5,7 +5,12 @@
     <div class="event-image">
       <img src="<%= event.image %>" alt="event image" class="card-image">
     </div>
-    <p class="event-info">Guía: <%= event.guide %></p>
+    <p class="event-info">Guía: 
+      <%  event.guide.find( user =>{ %>
+        <%= user.username %>
+     <% }) %>
+
+    </p>
     <p class="event-info date">Date: <%= event.date %></p>
     <p class="event-info">Location:</p>
       <ul>

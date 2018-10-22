@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Event = require('../models/event');
-// const User = require('../models/user');
+const User = require('../models/user');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const middlewares = require('../middlewares/middlewares');
@@ -9,6 +9,7 @@ const middlewares = require('../middlewares/middlewares');
 router.get('/', middlewares.requireUser, (req, res, next) => {
   Event.find().sort({ date: 1 })
     .then(events => {
+
       res.render('events/index', { events });
     })
     .catch(error => {
@@ -21,6 +22,7 @@ router.get('/create', middlewares.requireUser, (req, res, next) => {
 });
 
 router.post('/create', middlewares.requireUser, (req, res, next) => {
+
   const {
     title,
     image,
@@ -35,12 +37,26 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
     distance
   } = req.body;
 
-  const newEvent = new Event({ title, image, date, location: { city, region, country }, startingPoint, description, difficultyLevel, duration, distance });
+  const newEvent = new Event({
+    title,
+    image,
+    date,
+    location: { city, region, country },
+    startingPoint,
+    description,
+    difficultyLevel,
+    duration,
+    distance
+  });
+
+  const guideId = req.session.currentUser._id;
+  newEvent.guide.push(ObjectId(guideId));   
   newEvent.save()
     .then(() => {
       res.redirect('/events/');
     })
     .catch(next);
+    
 });
 
 // hay que meter el dato en la sesión para luego renderizar la vista en función del dato
@@ -54,7 +70,7 @@ router.post('/list', middlewares.requireUser, (req, res, next) => {
   // .catch(next);
 });
 
-router.get('/list', middlewares.requireUser, (req, res, next) => { 
+router.get('/list', middlewares.requireUser, (req, res, next) => {
   Event.find()
     .then(events => {
       res.render('events/list', { events });
@@ -69,6 +85,7 @@ router.get('/:_id', (req, res, next) => {
 
   Event.findById(id)
     .populate('participants')
+    .populate('guide')
     .then((event) => {
       res.render('events/event-detail', { event });
     })
