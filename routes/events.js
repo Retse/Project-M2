@@ -9,7 +9,6 @@ const middlewares = require('../middlewares/middlewares');
 router.get('/', middlewares.requireUser, (req, res, next) => {
   Event.find().sort({ date: 1 })
     .then(events => {
-
       res.render('events/index', { events });
     })
     .catch(error => {
@@ -22,7 +21,6 @@ router.get('/create', middlewares.requireUser, (req, res, next) => {
 });
 
 router.post('/create', middlewares.requireUser, (req, res, next) => {
-
   const {
     title,
     image,
@@ -50,28 +48,22 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
   });
 
   const guideId = req.session.currentUser._id;
-  newEvent.guide.push(ObjectId(guideId));   
+  newEvent.guide.push(ObjectId(guideId));
   newEvent.save()
     .then(() => {
       res.redirect('/events/');
     })
     .catch(next);
-    
 });
 
-// hay que meter el dato en la sesión para luego renderizar la vista en función del dato
+// hay que meter el dato en la sesión para luego renderizar la vista en función del dato (filtraje)
 router.post('/list', middlewares.requireUser, (req, res, next) => {
-  const { city } = req.body;
-  // req.session.
-  // Event.find({ location: { city: city } })
-  // .then( events => {
+  req.session.city = req.body.city;
   res.redirect('/events/list');
-  // })
-  // .catch(next);
 });
-
 router.get('/list', middlewares.requireUser, (req, res, next) => {
-  Event.find()
+  const city = req.session.city;
+  Event.find({ 'location.city': city })
     .then(events => {
       res.render('events/list', { events });
     })
