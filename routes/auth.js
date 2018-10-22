@@ -82,7 +82,6 @@ router.post('/logout', middlewares.requireUser, (req, res, next) => {
       return res.redirect('/');
     }
   });
-  
 });
 
 module.exports = router;

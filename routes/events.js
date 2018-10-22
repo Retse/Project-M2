@@ -54,7 +54,7 @@ router.post('/list', middlewares.requireUser, (req, res, next) => {
   // .catch(next);
 });
 
-router.get('/list', middlewares.requireUser, (req, res, next) => { 
+router.get('/list', middlewares.requireUser, (req, res, next) => {
   Event.find()
     .then(events => {
       res.render('events/list', { events });
