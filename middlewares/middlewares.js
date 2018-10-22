@@ -21,7 +21,7 @@ function requireAnon (req, res, next) {
 function userLoggedIn (req, res, next) {
   const user = req.session.currentUser;
   if (user) {
-    return res.redirect('/');
+    return res.redirect('/events');
   }
   next();
 }

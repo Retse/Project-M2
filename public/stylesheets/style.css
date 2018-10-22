@@ -32,7 +32,7 @@ body {
 
 .container              { display        : flex         ;}
 .justify-cont-center    { justify-content: center       ;}
-.justify-cont-start     { justify-content: flex-star    ;}
+.justify-cont-start     { justify-content: flex-start   ;}
 .justify-cont-end       { justify-content: flex-end     ;}
 .justify-cont-around    { justify-content: space-around ;}
 .justify-items-center   { justify-items  : center       ;}
