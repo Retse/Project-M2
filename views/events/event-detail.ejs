@@ -11,7 +11,6 @@
       <%  event.guide.find( user =>{ %>
         <%= user.username %>
      <% }) %>
-
     </p>
     <p class="event-info date">Date: <%= event.date.toDateString() %></p>
     <p class="event-info">Location:</p>
@@ -28,14 +27,12 @@
     <p class="event-info">Distance: <%= event.distance %> km</p>
   </article>
 </section>
-        <li>Participants: 
+<section id="participants">
+      <ul> Participants: 
             <% event.participants.forEach(user => { %>
-              <span><a href=""><%= user.username %></a>,&emsp;</span> 
+             <li> <span><a href=""><%= user.username %></a>,&emsp;</span> </li>
             <% }) %>
-        </li>
       </ul>
-  </p>
-
   <form class=" join form container  flex-column  align-items-center " method="POST" action='/events/<%= event._id %>/join'>
     <div class="container  link-container">
         <li><button type="submit">Join the hike</button></li> 
@@ -45,8 +42,8 @@
   <div class="container  link-container">
       <li><button type="submit">Leave the hike</button></li> 
   </div>
-</form>
-</article>
-<%- include ../partials/navbar.ejs %>
+  </form>
+  </article>
 </section>
+<%- include ../partials/navbar.ejs %>
 

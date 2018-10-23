@@ -249,6 +249,15 @@ p.btn a {
   box-shadow: 4px 4px 2px rgb(46, 44, 43);
 }
 
+
+/*----------------- Event Detail ---------------*/
+
+#participants {
+  padding-bottom: 80px;
+}
+
+
+
 /* ----------- form -----------*/
 
 
