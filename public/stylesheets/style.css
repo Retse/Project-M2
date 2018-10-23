@@ -10,9 +10,7 @@ body {
   padding: 0;
 }
 
-button {
-  border: none;
-}
+
 
 li, ul {
   list-style: none;
@@ -115,8 +113,11 @@ body {
 
   .log-signup button {
     color:  rgb(72, 125, 48);
+    background-color: rgb(186, 223, 160);
+    border: none;
   }
 
+  
   .log-signup .field {
     width: 85%;
   }
@@ -148,10 +149,11 @@ body {
     margin: 15px 0;
     padding: 15px;
   }
-/* 
-  .sign-up p {
-    color: rgba(223, 215, 215, 0.938);
-  } */
+
+  .sign-up .submit:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
 
   a.toggle-signup {
     color:rgb(239, 240, 238);
