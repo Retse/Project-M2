@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const Event = require('../models/event');
-const User = require('../models/user');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const middlewares = require('../middlewares/middlewares');
 const flashMessages = require('../middlewares/notifications');
 
 router.get('/', middlewares.requireUser, (req, res, next) => {
+
   Event.find().sort({ date: 1 })
     .then(events => {
       res.render('events/index', { events });
@@ -90,6 +90,22 @@ router.post('/:_id', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
+router.get('/:_id', (req, res, next) => {
+  const id = req.params._id;
+  // const { _id: id } = req.params
+  if (ObjectId.isValid(id)) {
+    Event.findById(id)
+      .populate('participants')
+      .populate('guide')
+      .then((event) => {
+        res.render('events/event-detail', { event });
+      })
+      .catch(next);
+  } else {
+    next();
+  }
+});
+
 router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
   const userId = req.session.currentUser._id;
   const eventId = req.params._id;
@@ -131,13 +147,19 @@ router.get('/:_id', (req, res, next) => {
   // next();
 });
 
-router.post('/:id/disjoin', middlewares.requireUser, (req, res, next) => {
+router.post('/:_id/leave', middlewares.requireUser, (req, res, next) => {
   const userId = req.session.currentUser._id;
   const eventId = req.params._id;
 
-//   Event.findById(eventId) {
-//     event.participants
-//   }
+  Event.findById(eventId)
+    .then(event => {
+      event.participants.pull({ _id: ObjectId(userId) });
+      event.save()
+        .then(item => {
+          res.redirect(`/events/${eventId}`);
+        });
+    })
+    .catch(next);
 });
 
 module.exports = router;

@@ -41,6 +41,12 @@
         <li><button type="submit">Join the hike</button></li> 
     </div>
   </form>
+  <form class=" join form container  flex-column  align-items-center " method="POST" action='/events/<%= event._id %>/leave'>
+  <div class="container  link-container">
+      <li><button type="submit">Leave the hike</button></li> 
+  </div>
+</form>
 </article>
+<%- include ../partials/navbar.ejs %>
 </section>
 
