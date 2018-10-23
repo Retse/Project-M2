@@ -8,8 +8,9 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 const middlewares = require('./middlewares/middlewares');
+require('dotenv').config();
 
-mongoose.connect('mongodb://localhost/hiker', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
