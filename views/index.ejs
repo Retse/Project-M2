@@ -3,52 +3,53 @@
 </section>
 <%- include partials/notifications.ejs %> 
 <section class=" log-signup  container  flex-column  align-items-center ">
-    <form class=" log-in  form container  flex-column  align-items-center " method="POST" action="/auth/login">
-      <div class="container  justify-cont-center  align-items-center  submit">
-        <button type="submit">Login</button>
-      </div>
-
-      <div class=" field  container  flex-column " >
-        <label>e-mail</label>
-        <input class=" align-self-center " type="text" name="email"/>
-      </div>
-
-      <div class=" field   container  flex-column " >
-        <label>password</label>
-        <input class=" align-self-center " type="password" name="password"/>
-      </div>
-      <!--
-      <div class="container  justify-cont-center  align-items-center  submit">
-        <button type="submit">Login</button>
-      </div>
-      -->     
-   </form>
-
-    <div class="signup-toggle container">
-      <p class="align-self-center  "> Don't you have an acount yet? <a>Signup</a></p>
+  <form class=" log-in  form container  flex-column  align-items-center " method="POST" action="/auth/login">
+    <!--
+    <div class="container  justify-cont-center  align-items-center  submit">
+      <button type="submit">Login</button>
+    </div>
+    -->  
+    <div class=" field  container  flex-column " >
+      <label>e-mail</label>
+      <input class=" align-self-center " type="text" name="email"/>
     </div>
 
-    <form class="sign-up hidden container  form flex-column  align-items-center" method="POST" action="/auth/signup">
+    <div class=" field   container  flex-column " >
+      <label>password</label>
+      <input class=" align-self-center " type="password" name="password"/>
+    </div>
+    
+    <div class="container  justify-cont-center  align-items-center  submit">
+      <button type="submit">Login</button>
+    </div>
+       
+  </form>
 
+  <div class="signup-toggle container">
+    <p class="align-self-center  "> Don't you have an acount yet? <a class="toggle-signup">Signup</a></p>
+  </div>
+
+  <div class="show-form hidden">
+    <form class="hidden sign-up container  form flex-column  align-items-center" method="POST" action="/auth/signup">
 
       <div class="field  container  flex-column " >
         <label>username</label>
-        <input class=" align-self-center " type="text" name="username"/>
+        <input class="input align-self-center " type="text" name="username"/>
       </div>
 
       <div class=" field container  flex-column" >
         <label>email</label>
-        <input class=" align-self-center " type="text" name="email"/>
+        <input class="input align-self-center " type="text" name="email"/>
       </div>
 
       <div class=" field container  flex-column" >
         <label>password</label>
-        <input class=" align-self-center " type="password" name="password"/>
+        <input class="input align-self-center " type="password" name="password"/>
       </div>
 
       <div class=" field container  flex-column" >
         <label>Date of birth</label>
-        <input class=" align-self-center " type="date" name="dateOfBirth"/>
+        <input class="input align-self-center " type="date" name="birthdate"/>
       </div>
 
       <div class="submit  container  justify-cont-center  align-items-center">
@@ -56,8 +57,10 @@
       </div>
 
     </form>
- 
+  </div>
+  
 </section>
+
 <section class="events-container">
  <!-- partial to be included -->
   <% events.forEach( event => { %>

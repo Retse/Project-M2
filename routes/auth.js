@@ -1,19 +1,17 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
-
 const User = require('../models/user');
 const middlewares = require('../middlewares/middlewares');
 const flashMessages = require('../middlewares/notifications');
+const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
 const router = express.Router();
 
-// Ruta post signup
 router.post('/signup', middlewares.requireAnon, (req, res, next) => {
-  const { username, password, email, dateOfBirth } = req.body;
+  const { username, password, email, birthdate } = req.body;
 
-  if (!username || !password || !email || !dateOfBirth) {
-    console.log(username, password, email, dateOfBirth);
+  if (!username || !password || !email || !birthdate) {
+    console.log(username, password, email, birthdate);
     req.flash('error', flashMessages.allFieldsCompleteError);
     return res.redirect('/');
   }
@@ -28,13 +26,11 @@ router.post('/signup', middlewares.requireAnon, (req, res, next) => {
       const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = bcrypt.hashSync(password, salt);
 
-      const newUser = new User({ username, email, password: hashedPassword, dateOfBirth });
+      const newUser = new User({ username, email, password: hashedPassword, birthdate });
 
       newUser.save()
         .then(() => {
-          // guardamos el usuario en la session
           req.session.currentUser = newUser;
-          // redirect siempre com barra
           res.redirect('/events');
         })
         .catch(next);
@@ -59,7 +55,6 @@ router.post('/login', middlewares.userLoggedIn, (req, res, next) => {
       }
 
       if (bcrypt.compareSync(password, user.password)) {
-        // Añadir el usuario a la sesion si ok
         req.session.currentUser = user;
         return res.redirect('/events');
       } else {
