@@ -37,8 +37,9 @@ const data = [
 
 const mongoose = require('mongoose');
 const Event = require('../models/event');
+require('dotenv').config();
 
-mongoose.connect('mongodb://localhost/hiker', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
