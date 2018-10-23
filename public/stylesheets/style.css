@@ -172,16 +172,23 @@ feed {
   .profile-info {
     padding: 20px 20px 10px 20px;
     border-bottom: grey 0.5px solid;
-
+    box-shadow: 0 0 5px #CFEDC4;
+    margin-bottom: 15px;
+    background: rgba(207, 237, 196, 0.2);
   } 
 
   .profile-info img {
-    border-radius: 70%;
+    border-radius: 50%;
+    margin-top: 2%;
+    margin-left: 2%;
+    width: 120px;
+    height: 120px;
+    border: solid;
   }
 
   .profile-info div {
     padding: 20px;
-    margin-left: 5px;
+    margin-left: 15px;
     width: 60%;
   }
 
@@ -189,6 +196,9 @@ feed {
     margin: 8px 0;
   }
 
+  .profile-info.container {
+    font-size: 15px;
+  }
 
 
 
