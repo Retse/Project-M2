@@ -37,9 +37,14 @@
   <form class=" join form container  flex-column  align-items-center " method="POST" action='/events/<%= event._id %>/join'>
     <div class="container  link-container">
         <li><button type="submit">Join the hike</button></li> 
-        <%- include ../partials/notifications.ejs %> 
     </div>
   </form>
+  <form class=" join form container  flex-column  align-items-center " method="POST" action='/events/<%= event._id %>/leave'>
+  <div class="container  link-container">
+      <li><button type="submit">Leave the hike</button></li> 
+      <%- include ../partials/notifications.ejs %> 
+  </div>
+</form>
 </article>
 </section>
 
