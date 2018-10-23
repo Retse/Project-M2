@@ -6,6 +6,7 @@ const allFieldsCompleteError = 'All fields must be completed';
 const userNameTaken = 'Username already taken';
 const loginEmptyField = "Username and password can't be empty";
 const loginIncorrectField = 'Username or password are incorrect';
+const correctLogin = 'You have logged-in successfully';
 
 module.exports = {
   joinEvent,
@@ -13,5 +14,6 @@ module.exports = {
   allFieldsCompleteError,
   userNameTaken,
   loginEmptyField,
-  loginIncorrectField
+  loginIncorrectField,
+  correctLogin
 };

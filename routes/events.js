@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const Event = require('../models/event');
-const User = require('../models/user');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const middlewares = require('../middlewares/middlewares');
 const flashMessages = require('../middlewares/notifications');
 
 router.get('/', middlewares.requireUser, (req, res, next) => {
+
   Event.find().sort({ date: 1 })
     .then(events => {
       res.render('events/index', { events });

@@ -10,6 +10,10 @@ body {
   padding: 0;
 }
 
+button {
+  border: none;
+}
+
 li, ul {
   list-style: none;
 }
