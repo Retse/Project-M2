@@ -57,7 +57,6 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
-// hay que meter el dato en la sesión para luego renderizar la vista en función del dato (filtraje)
 router.post('/list', middlewares.requireUser, (req, res, next) => {
   req.session.city = req.body.city;
   res.redirect('/events/list');
@@ -75,16 +74,16 @@ router.get('/:_id', (req, res, next) => {
   const id = req.params._id;
 
   // const { _id: id } = req.params
-  if (ObjectId.isValid(id)) {
-    Event.findById(id)
-      .populate('participants')
-      .populate('guide')
-      .then((event) => {
-        res.render('events/event-detail', { event });
-      })
-      .catch(next);
-  }
-  next();
+  // if (ObjectId.isValid(id)) {
+  Event.findById(id)
+    .populate('participants')
+    .populate('guide')
+    .then((event) => {
+      res.render('events/event-detail', { event });
+    })
+    .catch(next);
+  // }
+  // next();
 });
 
 router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
@@ -110,6 +109,15 @@ router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
       }
     })
     .catch(next);
+});
+
+router.post('/:id/disjoin', middlewares.requireUser, (req, res, next) => {
+  const userId = req.session.currentUser._id;
+  const eventId = req.params._id;
+
+//   Event.findById(eventId) {
+//     event.participants
+//   }
 });
 
 module.exports = router;
