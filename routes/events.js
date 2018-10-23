@@ -75,14 +75,16 @@ router.get('/:_id', (req, res, next) => {
   const id = req.params._id;
 
   // const { _id: id } = req.params
-
-  Event.findById(id)
-    .populate('participants')
-    .populate('guide')
-    .then((event) => {
-      res.render('events/event-detail', { event });
-    })
-    .catch(next);
+  if (ObjectId.isValid(id)) {
+    Event.findById(id)
+      .populate('participants')
+      .populate('guide')
+      .then((event) => {
+        res.render('events/event-detail', { event });
+      })
+      .catch(next);
+  }
+  next();
 });
 
 router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
