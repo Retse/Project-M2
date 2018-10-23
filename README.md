@@ -1,5 +1,6 @@
 # Hiker
 
+
 ## Description
 
 Community based App that joins hiking enthusiasts for trekking trips around the world. You can be a guide and create a trip event or join one. You can meet amazing people and incredible places!

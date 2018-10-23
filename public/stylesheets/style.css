@@ -105,7 +105,7 @@ body {
       border-radius: 14px;
       width: 120px;
       height: 25px;
-      margin: 15px 0;
+      margin: 5px 0 10px 0;
       padding: 15px;
   }
 
@@ -119,17 +119,23 @@ body {
 
   .log-signup label {
     margin-left: 30px;
-    /* color: white; */
+    font-size: 18px;
+    margin-bottom: 4px;
   }
 
   .log-signup  input {
-    width : 85%  ;
-    height: 30px ;
-    border-radius: 10px;
+    width: 90%;
+    height: 35px;
+    border-radius: 20px;
     margin-bottom: 20px;
+    padding-left: 15px;
+    font-size: 16px;
   }
 
-
+  div.show-form {
+    width: 100%;
+  }
+ 
   .sign-up .submit {
     background-color: rgb(186, 223, 160);
     border-radius: 14px;
@@ -143,8 +149,8 @@ body {
     color: rgba(223, 215, 215, 0.938);
   } */
 
-  .signup-toggle {
-    color: white;
+  a.toggle-signup {
+    color:rgb(239, 240, 238);
   }
 
 
@@ -161,17 +167,24 @@ feed {
 
   .profile-info {
     padding: 20px 20px 10px 20px;
-    border-bottom: white 0.5px solid;
+    border-bottom: grey 0.5px solid;
+    box-shadow: 0 0 5px #CFEDC4;
+    margin-bottom: 15px;
+    background: rgba(207, 237, 196, 0.2);
   } 
 
   .profile-info img {
-    border-radius: 70%;
-    margin-top: 5%;
+    border-radius: 50%;
+    margin-top: 2%;
+    margin-left: 2%;
+    width: 120px;
+    height: 120px;
+    border: solid;
   }
 
   .profile-info div {
     padding: 20px;
-    margin-left: 5px;
+    margin-left: 15px;
     width: 60%;
   }
 
@@ -179,6 +192,9 @@ feed {
     margin: 8px 0;
   }
 
+  .profile-info.container {
+    font-size: 15px;
+  }
 
 
 

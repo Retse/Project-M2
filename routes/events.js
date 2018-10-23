@@ -72,18 +72,18 @@ router.get('/list', middlewares.requireUser, (req, res, next) => {
 
 router.get('/:_id', (req, res, next) => {
   const id = req.params._id;
-
   // const { _id: id } = req.params
-  // if (ObjectId.isValid(id)) {
-  Event.findById(id)
-    .populate('participants')
-    .populate('guide')
-    .then((event) => {
-      res.render('events/event-detail', { event });
-    })
-    .catch(next);
-  // }
-  // next();
+  if (ObjectId.isValid(id)) {
+    Event.findById(id)
+      .populate('participants')
+      .populate('guide')
+      .then((event) => {
+        res.render('events/event-detail', { event });
+      })
+      .catch(next);
+  } else {
+    next();
+  }
 });
 
 router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
@@ -111,13 +111,19 @@ router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
-router.post('/:id/disjoin', middlewares.requireUser, (req, res, next) => {
+router.post('/:_id/leave', middlewares.requireUser, (req, res, next) => {
   const userId = req.session.currentUser._id;
   const eventId = req.params._id;
 
-//   Event.findById(eventId) {
-//     event.participants
-//   }
+  Event.findById(eventId)
+    .then(event => {
+      event.participants.pull({ _id: ObjectId(userId) });
+      event.save()
+        .then(item => {
+          res.redirect(`/events/${eventId}`);
+        });
+    })
+    .catch(next);
 });
 
 module.exports = router;
