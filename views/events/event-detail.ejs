@@ -1,7 +1,9 @@
 <section id="event-detail">
   <article class="event">
     <a href="../events/">Go back</a>
+    <%- include ../partials/notifications.ejs %> 
     <h2 class="event-title"><%= event.title %></h2>
+    <a href="/events/<%= event._id%>/edit" class="edit-event">Edit</a>
     <div class="event-image">
       <img src="<%= event.image %>" alt="event image" class="card-image">
     </div>
@@ -11,7 +13,7 @@
      <% }) %>
 
     </p>
-    <p class="event-info date">Date: <%= event.date %></p>
+    <p class="event-info date">Date: <%= event.date.toDateString() %></p>
     <p class="event-info">Location:</p>
       <ul>
         <li>City: <%= event.location.city  %></li>
@@ -22,7 +24,7 @@
     <p class="event-info"><%= event.description %></p>
     <p class="event-info">Participants</p>
     <p class="event-info">Difficulty level: <%= event.difficultyLevel %></p>
-    <p class="event-info">Duration: <%= event.duration %> minutes</p>
+    <p class="event-info">Duration: <%= event.duration %> hours</p>
     <p class="event-info">Distance: <%= event.distance %> km</p>
   </article>
 </section>
@@ -42,7 +44,6 @@
   <form class=" join form container  flex-column  align-items-center " method="POST" action='/events/<%= event._id %>/leave'>
   <div class="container  link-container">
       <li><button type="submit">Leave the hike</button></li> 
-      <%- include ../partials/notifications.ejs %> 
   </div>
 </form>
 </article>
