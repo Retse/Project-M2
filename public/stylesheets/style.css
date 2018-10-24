@@ -18,8 +18,10 @@ li, ul {
 
 /*----------------- General CSS -------------------*/
 body {
- background-color: #47603E;
- color: #ACC4A2;
+ /* background-color: #47603E; */
+ background-color: #F7F4F2;
+ /* color: #ACC4A2; */
+ color: #537048;
  /* font-family: 'Roboto Condensed', sans-serif; */
  font-family: 'Roboto', sans-serif;
  font-size: 14px;
@@ -48,7 +50,7 @@ body {
 /* ----------------------------------- NavBar -----------------------------------------*/
 
 .navbar {
-  background-color: rgb(220, 221, 219);
+  background-color: #3E3F40;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -59,6 +61,10 @@ body {
   width: 100%;
 }
 
+img.invert-color {
+	-webkit-filter: invert(1) hue-rotate(180deg) contrast(2);
+  filter: invert(1) hue-rotate(180deg) contrast(2);
+}
 
 
 .navbar .link-container{
@@ -109,12 +115,14 @@ body {
       height: 25px;
       margin: 5px 0 10px 0;
       padding: 15px;
+      border: 1.5px grey solid;
   }
 
   .log-signup button {
     color:  rgb(72, 125, 48);
     background-color: rgb(186, 223, 160);
     border: none;
+    font-size: 14px;
   }
 
   
@@ -148,6 +156,7 @@ body {
     height: 25px;
     margin: 15px 0;
     padding: 15px;
+    border: 1.5px grey solid;
   }
 
   .sign-up .submit:hover {
@@ -156,7 +165,7 @@ body {
   }
 
   a.toggle-signup {
-    color:rgb(239, 240, 238);
+    color:rgb(91, 153, 72);
   }
 
 
@@ -232,6 +241,7 @@ p.btn {
   border-radius: 30px;
   width: 35%;
   text-align: center;
+  font-size: 14px;
 }
 
 p.btn a {
@@ -245,8 +255,7 @@ p.btn a {
 }
 
 .buttons-container {
-  background-color:rgb(220, 221, 219);
-  box-shadow: 4px 4px 2px rgb(46, 44, 43);
+  margin-top: 15px;
 }
 
 /* ----------- form -----------*/
@@ -256,12 +265,12 @@ p.btn a {
 .events-form {
   margin: 0 auto;
   text-align: center;
-  padding: 25px 0 10px 0;
+  padding: 10px 0;
 }
 .events-form label {
 	margin-bottom: 10px;
   font-style: bold;
-  color: #CFEDC4;
+  /* color: #CFEDC4; */
 
 }
 
@@ -270,6 +279,7 @@ p.btn a {
   font-size: 12px;
   border-radius: 30px;
   width: 70%;
+  border: grey 0.8px solid;
 }
 
 .events-form .submit {
@@ -277,14 +287,15 @@ p.btn a {
 }
 
 .events-form .submit button {
-  padding: 5px 20px;
-  text-align: center;
-  font-size: 12px;
   color: #537048;
-  background-color: #ACC4A2;
+  padding: 5px 0px;
+  border: 1.5px grey solid;
   border-radius: 30px;
-  cursor: pointer;
-  margin: 5px auto;
+  width: 35%;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  background-color: #F7F4F2;
 }
 
 
@@ -318,7 +329,7 @@ p.btn a {
 
 /*-------------------- Flash messages Partial  ----------------------*/
 .flash-messages {
-  color: white;
+  color: #5B9948;
   margin-top: 10px;
   font-size: 18px;
 }
@@ -330,18 +341,21 @@ p.btn a {
 
 
 
-/*------------------------  Events Partials ---------------------------*/
+/*---------------------------  Partials -----------------------------*/
 
+/* ------ event partial -------- */
 .events-container {
-  padding: 15px;
+  padding: 10px 15px;
 }
 
 article.event-card {
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0 0 5px #CFEDC4;
+  border: solid 1px #3C3D3B;
+  box-shadow: 3px 3px 5px #3C3D3B;
   margin-bottom: 15px;
-  background: rgba(207, 237, 196, 0.2);
+  background: rgba(91, 153, 72, 0.8);
+  color: black;
 }
 
 .card-image {
@@ -351,7 +365,7 @@ article.event-card {
 }
 
 h3.card, a.card{
-  color: rgb(220, 221, 219);
+  color: #F7F4F2;;
 }
 .card {
   padding-left: 10px;
@@ -368,6 +382,21 @@ a.card {
   padding-top: 4px;
 }
 
-a {
+/* a {
  font-family: 'Roboto Condensed', sans-serif;
+} */
+
+/* ------ hello user partial -------- */
+
+h2.user-name {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #3E3F40;
+  color: #F7F4F2;
 }
+
+

@@ -72,11 +72,22 @@ router.get('/list', middlewares.requireUser, (req, res, next) => {
 
 router.get('/:_id/edit', middlewares.requireUser, (req, res, next) => {
   const eventId = req.params._id;
+  const userId = req.session.currentUser._id; 
   Event.findById(eventId)
     .then(event => {
-      res.render('events/edit', { event: event })
+      console.log(event.guide[0] + ' event guide');
+      console.log(userId + ' current user');
+      const isGuide = event.guide.some(guide => {
+        return guide.equals(userId);
+      });
+      if (isGuide) {
+        res.render('events/edit', { event: event });
+      } else {
+        req.flash('info', flashMessages.cantEdit);
+        res.redirect(`/events/${eventId}`);
+      }
     })
-    .catch(next)
+    .catch(next);
 });
 
 router.post('/:_id', middlewares.requireUser, (req, res, next) => {
