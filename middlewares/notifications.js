@@ -8,6 +8,7 @@ const loginEmptyField = "Username and password can't be empty";
 const loginIncorrectField = 'Username or password are incorrect';
 const eventEdited = 'Your event has been successfully updated!';
 const correctLogin = 'You have logged-in successfully';
+const profileEdit = 'Your profile has been successfully updated!';
 
 module.exports = {
   joinEvent,
@@ -17,5 +18,6 @@ module.exports = {
   loginEmptyField,
   loginIncorrectField,
   eventEdited,
-  correctLogin
+  correctLogin,
+  profileEdit
 };

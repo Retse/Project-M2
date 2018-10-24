@@ -5,6 +5,7 @@ const Event = require('../models/event');
 const middlewares = require('../middlewares/middlewares');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
+const flashMessages = require('../middlewares/notifications');
 
 /* GET users listing. */
 router.get('/', middlewares.requireUser, (req, res, next) => {
@@ -18,6 +19,27 @@ router.get('/', middlewares.requireUser, (req, res, next) => {
           res.render('profile', { 'user': user, 'event': event });
         })
         .catch(next);
+    })
+    .catch(next);
+});
+
+router.get('/profileEdit', middlewares.requireUser, (req, res, next) => {
+  const userId = req.session.currentUser._id;
+  User.findById(userId)
+    .then(user => {
+      res.render('profileEdit', { 'user': user });
+    })
+    .catch(next);
+});
+
+router.post('/profileEdit', middlewares.requireUser, (req, res, next) => {
+  const userId = req.session.currentUser._id;
+  const { tagline, aboutme } = req.body;
+
+  User.findByIdAndUpdate(userId, { tagline: `${tagline}`, aboutme: `${aboutme}` })
+    .then(user => {
+      req.flash('info', flashMessages.profileEdit);
+      res.redirect('/users');
     })
     .catch(next);
 });

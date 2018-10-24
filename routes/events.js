@@ -7,7 +7,6 @@ const middlewares = require('../middlewares/middlewares');
 const flashMessages = require('../middlewares/notifications');
 
 router.get('/', middlewares.requireUser, (req, res, next) => {
-
   Event.find().sort({ date: 1 })
     .then(events => {
       res.render('events/index', { events });
@@ -74,9 +73,9 @@ router.get('/:_id/edit', middlewares.requireUser, (req, res, next) => {
   const eventId = req.params._id;
   Event.findById(eventId)
     .then(event => {
-      res.render('events/edit', { event: event })
+      res.render('events/edit', { event: event });
     })
-    .catch(next)
+    .catch(next);
 });
 
 router.post('/:_id', middlewares.requireUser, (req, res, next) => {
