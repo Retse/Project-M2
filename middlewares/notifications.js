@@ -9,6 +9,7 @@ const loginIncorrectField = 'Username or password are incorrect';
 const eventEdited = 'Your event has been successfully updated!';
 const correctLogin = 'You have logged-in successfully';
 const profileEdit = 'Your profile has been successfully updated!';
+const cantEdit = 'Sorry, you can only edit your events!';
 
 module.exports = {
   joinEvent,
@@ -19,5 +20,6 @@ module.exports = {
   loginIncorrectField,
   eventEdited,
   correctLogin,
-  profileEdit
+  profileEdit,
+  cantEdit
 };
