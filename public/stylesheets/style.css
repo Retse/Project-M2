@@ -102,6 +102,7 @@ img.invert-color {
 .log-signup {
   /* background-color: rgb(72, 125, 48); */
   width: 100%;
+  margin-top: 10px;
 }
 
   .log-signup form {
