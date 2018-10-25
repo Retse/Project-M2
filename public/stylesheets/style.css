@@ -8,9 +8,8 @@ html {
 body {
   margin: 0;
   padding: 0;
+  min-height: 650px;
 }
-
-
 
 li, ul {
   list-style: none;
@@ -36,6 +35,10 @@ a.go-back {
   padding-top: 10px;
 }
 
+p {
+  color: #3E3F40;
+}
+
 h2 {
 color:rgb(91, 153, 72);
 }
@@ -53,6 +56,7 @@ color:rgb(91, 153, 72);
 .align-items-end        { align-items    : flex-start   ;}
 .flex-row               { flex-direction : row          ;}
 .flex-column            { flex-direction : column       ;}
+.flex-wrap              { flex-wrap      : wrap         ;}
 
 
 
@@ -210,17 +214,15 @@ feed {
 
   .profile-info img {
     border-radius: 50%;
-    margin-top: 2%;
-    margin-left: 2%;
     width: 120px;
     height: 120px;
     border: solid;
   }
 
   .profile-info div {
-    padding: 20px;
-    margin-left: 15px;
-    width: 60%;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
   }
 
   .profile-info p {
@@ -237,6 +239,36 @@ feed {
 
   h3.upcomming-events {
     margin-left: 20px;
+    width: 100%;
+  }
+
+  li.upcomming-events {
+    padding: 10px;
+  border-radius: 10px;
+  border: solid 1px #3C3D3B;
+  box-shadow: 3px 3px 5px #3C3D3B;
+  /* margin-bottom: 15px; */
+  background: rgba(91, 153, 72, 0.8);
+  color: black;
+  margin: 10px 20px;
+  }
+
+  a.edit-profile {
+  color: #537048;
+  padding: 5px 5px;
+  border: 1.5px grey solid;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 15px;
+  }
+
+  div.image-container {
+    width: 100%;
+  }
+
+  ul.upcomming-events {
+    padding: 0px 15px 20px 15px;
   }
 
 
@@ -283,7 +315,7 @@ p.btn a {
 }
 
 .buttons-container {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 /* ----------- form -----------*/
@@ -314,7 +346,7 @@ p.btn a {
   padding-top: 5px;
 }
 
-.events-form .submit button {
+.events-form .submit button, .join .submit button {
   color: #537048;
   padding: 5px 0px;
   border: 1.5px grey solid;
@@ -340,8 +372,71 @@ article.event {
   margin-top: 15px;
 }
 
-#participants {
+.event-title {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+div.image-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+img.event-image{
+  width: 100%;
+}
+
+p.event-info, ul.location-list {
+  margin: 10px 10px 0px 30px;
+  font-size: 16px;
+}
+
+div.info-container {
+  padding: 20px 0 10px 0;
+  background: rgba(91, 153, 72, 0.6);
+}
+
+span.title {
+  font-weight: bold;
+}
+#event-detail{
   margin-bottom: 30%;
+}
+
+ul.users-list {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+a.user-link {
+  color: #3E3F40;
+  text-decoration: none;
+}
+
+div.users-list {
+  margin: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+div.user-info {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 10px;
+}
+
+p.user-icon-tag {
+  margin-top: 2px;
+}
+
+img.user-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: solid 1px #47603E;
 }
 
 /* ------------ Error View 500 ----------------*/
@@ -364,7 +459,7 @@ article.event {
 /*-------------------- Flash messages Partial  ----------------------*/
 .flash-messages {
   color: #5B9948;
-  /* margin-top: 10px; */
+  margin-top: 5px;
   font-size: 18px;
 }
 
@@ -387,9 +482,7 @@ article.event-card {
   border-radius: 10px;
   border: solid 1px #3C3D3B;
   box-shadow: 3px 3px 5px #3C3D3B;
-  /* margin-bottom: 15px; */
-  background: rgba(91, 153, 72, 0.8);
-  color: black;
+  background: rgba(91, 153, 72, 0.6);
 }
 
 .card-image {
@@ -398,8 +491,11 @@ article.event-card {
   width: 140px;
 }
 
-h3.card, a.card{
+h3.card {
   color: #F7F4F2;;
+}
+ul.location-list, ul.users-list {
+  color: #3E3F40;
 }
 .card {
   padding-left: 10px;

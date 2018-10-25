@@ -10,46 +10,53 @@
         <button type="submit">Delete event</button>
     </div>
     </form>
-    <div class="event-image">
-      <img src="<%= event.image %>" alt="event image" class="card-image">
+    <div class="image-container">
+      <img class="event-image" src="<%= event.image %>" alt="event image">
     </div>
-    <p class="event-info">Guía: 
-      <%  event.guide.find( user =>{ %>
-        <%= user.username %>
-     <% }) %>
-    </p>
-    <p class="event-info date">Date: <%= event.date.toDateString()%></p>
-    <p class="event-info">Location:</p>
-      <ul>
-        <li>City: <%= event.location.city  %></li>
-        <li>Region: <%= event.location.region %></li>
-        <li>Country: <%= event.location.country  %></li>
-      </ul>
-    <p class="event-info">Starting point: <%= event.startingPoint %></p>
-    <p class="event-info"><%= event.description %></p>
-    <p class="event-info">Participants</p>
-    <p class="event-info">Difficulty level: <%= event.difficultyLevel %></p>
-    <p class="event-info">Duration: <%= event.duration %> hours</p>
-    <p class="event-info">Distance: <%= event.distance %> km</p>
+    <div class="info-container">
+      <p class="event-info"><span class="title">Guide: </span>
+        <%  event.guide.find( user =>{ %>
+          <%= user.username %>
+      <% }) %>
+      </p>
+      <p class="event-info date"><span class="title">Date:</span> <%= event.date %></p>
+      <p class="event-info"><span class="title">Location:</span></p>
+        <ul class="location-list">
+          <li><span class="title">City: </span><%= event.location.city  %></li>
+          <li><span class="title">Region: </span><%= event.location.region %></li>
+          <li><span class="title">Country: </span><%= event.location.country  %></li>
+        </ul>
+      <p class="event-info"><span class="title">Starting point:</span> <%= event.startingPoint %></p>
+      <p class="event-info"><span class="title">Description:</span> <%= event.description %></p>
+      <p class="event-info"><span class="title">Difficulty level:</span> <%= event.difficultyLevel %></p>
+      <p class="event-info"><span class="title">Duration:</span> <%= event.duration %> hours</p>
+      <p class="event-info"><span class="title">Distance:</span> <%= event.distance %> km</p>
+      <p class="event-info"><span class="title">Participants:</span></p>
+      <div class="users-list">  
+      <% event.participants.forEach(user => { %>
+        <div class="user-info">
+          <a class="user-link link" href="">
+            <img class="user-icon" src="<%= user.image %>" alt="user image"></li>
+            <p class="user-icon-tag"><%= user.username %>&emsp;</p> 
+          </a>
+        </div>
+      <% }) %>
+      </div>
+    </div>
   </article>
-</section>
-<section id="participants">
-      <ul> Participants: 
-            <% event.participants.forEach(user => { %>
-             <li> <span><a href=""><%= user.username %></a>,&emsp;</span> </li>
-            <% }) %>
-      </ul>
-  <form class=" join form container  flex-column  align-items-center " method="POST" action='/events/<%= event._id %>/join'>
-    <div class="container  link-container">
-        <li><button type="submit">Join the hike</button></li> 
+  <article class="participants join-disjoin">
+    <form class="join" method="POST" action='/events/<%= event._id %>/join'>
+      <div class="link-container submit">
+          <li><button type="submit">Join the hike</button></li> 
+      </div>
+    </form>
+    <form class="join" method="POST" action='/events/<%= event._id %>/leave'>
+    <div class="link-container submit">
+        <li><button type="submit">Leave the hike</button></li> 
     </div>
-  </form>
-  <form class=" join form container  flex-column  align-items-center " method="POST" action='/events/<%= event._id %>/leave'>
-  <div class="container  link-container">
-      <li><button type="submit">Leave the hike</button></li> 
-  </div>
-  </form>
+    </form>
   </article>
 </section>
 <%- include ../partials/navbar.ejs %>
 
+<span class="title"></span>

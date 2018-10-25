@@ -38,7 +38,13 @@ router.get('/profileEdit', middlewares.requireUser, (req, res, next) => {
 router.post('/profileEdit', middlewares.requireUser, upload.single('image'), (req, res, next) => {
   const userId = req.session.currentUser._id;
   const { tagline, aboutme } = req.body;
-  const image = req.file.url;
+  let image;
+
+  if (req.file) {
+    image = req.file.url;
+  } else {
+    image = req.session.currentUser.image;
+  }
 
   User.findByIdAndUpdate(userId, { tagline: `${tagline}`, aboutme: `${aboutme}`, image: `${image}` })
     .then(user => {
