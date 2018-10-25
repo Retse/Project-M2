@@ -1,0 +1,16 @@
+<section class="  profile-info  container  ">
+  <%- include ../partials/notifications.ejs %> 
+  <!-- to include Profile Partial -->
+  <%- include ../partials/users/otherUserProfilePartial.ejs %>
+</section>
+<section class="  profile-events  container  flex-column">
+    <!-- To include events partials -->
+    <div class="flex-wrap  upcomming-events  container">
+    <%- include ../partials/users/userUpcomingEvents.ejs %>
+    </div>
+    <div class="  follow  container">
+      <h3 class="past-events">Followers</h3>
+      <%- include ../partials/users/followers.ejs %>
+    </div>
+</section>
+<%- include ../partials/navbar.ejs %>
