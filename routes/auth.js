@@ -11,7 +11,6 @@ router.post('/signup', middlewares.requireAnon, (req, res, next) => {
   const { username, password, email, birthdate } = req.body;
 
   if (!username || !password || !email || !birthdate) {
-    console.log(username, password, email, birthdate);
     req.flash('error', flashMessages.allFieldsCompleteError);
     return res.redirect('/');
   }
@@ -55,12 +54,13 @@ router.post('/login', middlewares.userLoggedIn, (req, res, next) => {
       }
 
       if (bcrypt.compareSync(password, user.password)) {
+        req.flash('success', flashMessages.correctLogin);
         req.session.currentUser = user;
         return res.redirect('/events');
-      } else {
-        req.flash('error', flashMessages.loginIncorrectField);
-        res.redirect('/');
       }
+
+      req.flash('error', flashMessages.loginIncorrectField);
+      res.redirect('/');
     })
     .catch(next);
 });
@@ -69,9 +69,8 @@ router.post('/logout', middlewares.requireUser, (req, res, next) => {
   req.session.destroy((err) => {
     if (err) {
       next(err);
-    } else {
-      return res.redirect('/');
     }
+    return res.redirect('/');
   });
 });
 

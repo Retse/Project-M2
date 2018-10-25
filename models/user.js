@@ -7,7 +7,12 @@ const userSchema = new Schema({
   email: String,
   dateOfBirth: Date,
   aboutme: String,
-  quote: String,
+  tagline: String,
+  image: String,
+  followers: [{
+    type: ObjectId,
+    ref: 'User'
+  }],
   routes: [{
     type: ObjectId,
     ref: 'Event'

@@ -8,6 +8,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  min-height: 650px;
 }
 
 li, ul {
@@ -17,8 +18,10 @@ li, ul {
 
 /*----------------- General CSS -------------------*/
 body {
- background-color: #47603E;
- color: #ACC4A2;
+ /* background-color: #47603E; */
+ background-color: #F7F4F2;
+ /* color: #ACC4A2; */
+ color: #537048;
  /* font-family: 'Roboto Condensed', sans-serif; */
  font-family: 'Roboto', sans-serif;
  font-size: 14px;
@@ -26,6 +29,20 @@ body {
 
 .hidden {
   display: none;
+}
+
+a.go-back {
+  margin-left: 10px;
+  padding-top: 10px;
+}
+
+p {
+  color: #3E3F40;
+}
+
+h2 {
+color:rgb(91, 153, 72);
+font-size: 2em;
 }
 
 /*------------- Flex Utilities -------------------*/
@@ -41,30 +58,45 @@ body {
 .align-items-end        { align-items    : flex-start   ;}
 .flex-row               { flex-direction : row          ;}
 .flex-column            { flex-direction : column       ;}
+.flex-wrap              { flex-wrap      : wrap         ;}
 
 
 
 /* ----------------------------------- NavBar -----------------------------------------*/
 
 .navbar {
-  background-color: rgb(220, 221, 219);
+  background-color: #3E3F40;
   width: 100%;
   position: fixed;
   bottom: 0;
- 
 }
 .nav-div {
-  
+  width: 100%;
+  height: 40px;
+}
+
+.navbar ul {
+  padding: 5px;
+}
+
+.nav-bar li {
+  width: 50px;
+  height: 50px;
+}
+
+img.invert-color {
+	-webkit-filter: invert(1) hue-rotate(180deg) contrast(2);
+  filter: invert(1) hue-rotate(180deg) contrast(2);
+}
+
+.navbar .link-container{
   width: 100%;
 }
 
-
-
-.navbar .link-container{
-  width: 25%;
+.navbar button {
+  background-color: #3E3F40;
+    border: none;
 }
-
-
 
 
 /* ------------------------------------- Home Page View --------------------------------------*/
@@ -95,6 +127,7 @@ body {
 .log-signup {
   /* background-color: rgb(72, 125, 48); */
   width: 100%;
+  margin-top: 10px;
 }
 
   .log-signup form {
@@ -108,12 +141,19 @@ body {
       height: 25px;
       margin: 5px 0 10px 0;
       padding: 15px;
+      border: 1.5px grey solid;
   }
 
   .log-signup button {
     color:  rgb(72, 125, 48);
+    background-color: rgb(186, 223, 160);
+    border: none;
+    font-size: 14px;
   }
 
+
+
+  
   .log-signup .field {
     width: 85%;
   }
@@ -144,14 +184,17 @@ body {
     height: 25px;
     margin: 15px 0;
     padding: 15px;
+    border: 1.5px grey solid;
   }
-/* 
-  .sign-up p {
-    color: rgba(223, 215, 215, 0.938);
-  } */
 
-  a.toggle-signup {
-    color:rgb(239, 240, 238);
+  .sign-up .submit:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+
+  a.link, .toggle-signup {
+    color:rgb(91, 153, 72);
+    text-decoration: none;
   }
 
 
@@ -162,24 +205,25 @@ body {
   .profile-info {
     padding: 20px 20px 10px 20px;
     border-bottom: grey 0.5px solid;
-    box-shadow: 0 0 5px #CFEDC4;
+    box-shadow: 0 0 5px black;
     margin-bottom: 15px;
     background: rgba(207, 237, 196, 0.2);
   } 
 
   .profile-info img {
     border-radius: 50%;
-    margin-top: 2%;
-    margin-left: 2%;
     width: 120px;
     height: 120px;
     border: solid;
   }
 
   .profile-info div {
-    padding: 20px;
-    margin-left: 15px;
-    width: 60%;
+    display: flex;
+    justify-content: center;
+  }
+
+  div.info-profile {
+color: #3E3F40;
   }
 
   .profile-info p {
@@ -190,8 +234,77 @@ body {
     font-size: 15px;
   }
 
+  h3.past-events {
+    margin-left: 20px;
+  }
 
+  h3.upcomming-events {
+    margin-left: 20px;
+    width: 100%;
+    font-size: 20px;
+    color: #3C3D3B;
+  }
 
+  h3.follow {
+    margin-left: 20px;
+    width: 100%;
+    font-size: 20px;
+    color: #3C3D3B;
+  }
+
+  p.username {
+    font-size: 30px;
+    align-self: center;
+  }
+
+  li.upcomming-events {
+    padding: 10px;
+  border-radius: 10px;
+  border: solid 1px #3C3D3B;
+  box-shadow: 3px 3px 5px #3C3D3B;
+  /* margin-bottom: 15px; */
+  background: #707B7C;
+  color: #ECF0F1;
+  margin: 10px 0px
+  }
+
+  button.edit-profile {
+    color: #537048;
+    padding: 5px 0px;
+    border: 1.5px grey solid;
+    border-radius: 30px;
+    width: 35%;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 15px;
+  }
+
+  a.edit-profile {
+    text-decoration: none;
+  }
+
+  div.image-container {
+    width: 100%;
+  }
+
+  ul.upcomming-events {
+    padding: 0px 15px 20px 15px;
+   
+  }
+
+  section.profile-info {
+    background:rgba(91, 153, 72, 0.8);;
+  }
+
+  div.follow {
+    padding-bottom: 80px;
+  }
+
+/*-------------------------------------------- Edit profil -------------------------------------*/
+
+div.form-field {
+
+}
 
 /* ------------------------------------------- Errors Views ------------------------------------*/
 
@@ -220,6 +333,7 @@ p.btn {
   border-radius: 30px;
   width: 35%;
   text-align: center;
+  font-size: 14px;
 }
 
 p.btn a {
@@ -233,23 +347,20 @@ p.btn a {
 }
 
 .buttons-container {
-  background-color:rgb(220, 221, 219);
-  box-shadow: 4px 4px 2px rgb(46, 44, 43);
+  margin-top: 20px;
 }
 
 /* ----------- form -----------*/
 
-
-
 .events-form {
   margin: 0 auto;
   text-align: center;
-  padding: 25px 0 10px 0;
+  padding: 10px 0;
 }
 .events-form label {
 	margin-bottom: 10px;
   font-style: bold;
-  color: #CFEDC4;
+  /* color: #CFEDC4; */
 
 }
 
@@ -258,29 +369,176 @@ p.btn a {
   font-size: 12px;
   border-radius: 30px;
   width: 70%;
+  border: grey 0.8px solid;
 }
 
 .events-form .submit {
   padding-top: 5px;
 }
 
-.events-form .submit button {
-  padding: 5px 20px;
-  text-align: center;
-  font-size: 12px;
+.events-form .submit button, button.create {
   color: #537048;
-  background-color: #ACC4A2;
+  padding: 5px 0px;
+  border: 1.5px grey solid;
   border-radius: 30px;
-  cursor: pointer;
-  margin: 5px auto;
+  width: 35%;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  background-color: #F7F4F2;
 }
-
 
 .error-page h3{
   background-color: rgba(120, 121, 113, 0.5);
   height: 40px;
   padding: 10px;
   margin-top: 50px;
+}
+
+/* ------------------------------ Event Detail --------------------------------------*/
+nav.event-navbar {
+  background-color: #3E3F40;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+a.nav-link {
+  color: #F7F4F2;
+}
+
+button.del-event {
+  color: #F7F4F2;
+  font-size: 14px;
+}
+
+article.event {
+  margin-top: 15px;
+}
+
+.event-title {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+img.event-image{
+  width: 100%;
+  margin-bottom: -3px;
+}
+
+p.event-info, ul.location-list {
+  margin: 10px 10px 0px 30px;
+  font-size: 16px;
+}
+
+div.info-container {
+  padding: 20px 0 10px 0;
+  background: rgba(91, 153, 72, 0.6);
+}
+
+span.title {
+  font-weight: bold;
+}
+
+#event-detail{
+  margin-bottom: 20%;
+}
+
+ul.users-list {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+a.user-link {
+  color: #3E3F40;
+  text-decoration: none;
+}
+
+div.users-list {
+  margin: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+div.user-info {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 10px;
+}
+
+p.user-icon-tag {
+  margin-top: 2px;
+}
+
+img.user-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: solid 1px #47603E;
+}
+
+article.participants {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+button.join {
+  width: 120px;
+  padding: 5px 3px;
+  border: 1.5px grey solid;
+  font-size: 14px;
+  background-color: #F7F4F2;
+  border-radius: 30px;
+  text-align: center;
+  padding: 5px 0px;
+  color: #537048;
+}
+
+/* ------------------------------ Section create/edit event -------------------------------------*/
+div.edit {
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form.edit-form {
+  padding: 15px 15px;
+  margin-bottom: 50px;
+}
+
+input.edit-create {
+  padding-left: 10px;
+  font-size: 14px;
+  border-radius: 15px;
+  width: 70%;
+  border: grey 0.8px solid;
+  height: 30px;
+}
+
+input.description {
+  height: 60px;
+}
+
+div.radio-input {
+  width: 45px;
+  font-size: 12px;
+  text-align: center;
+}
+
+div.submit-create {
+  text-align: center;
+  margin-top: -5px;
+  margin-bottom: 20px;
 }
 
 /* ------------ Error View 500 ----------------*/
@@ -290,24 +548,16 @@ p.btn a {
   
 }
 
-
-
-
-
 /* ------------ Error View 404 ----------------*/
 .error-404 { 
   background-image: url("/images/404.jpg");
 
 }
 
-
-
-
-
 /*-------------------- Flash messages Partial  ----------------------*/
 .flash-messages {
-  color: white;
-  margin-top: 10px;
+  color: #5B9948;
+  margin-top: 5px;
   font-size: 18px;
 }
 
@@ -315,21 +565,19 @@ p.btn a {
   text-align: center;
 }
 
+/*---------------------------  Partials -----------------------------*/
 
-
-
-/*------------------------  Events Partials ---------------------------*/
-
+/* ------ event partial -------- */
 .events-container {
-  padding: 15px;
+  padding: 0px 15px 20px 15px;
 }
 
 article.event-card {
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0 0 5px #CFEDC4;
-  margin-bottom: 15px;
-  background: rgba(207, 237, 196, 0.2);
+  border: solid 1px #3C3D3B;
+  box-shadow: 3px 3px 5px #3C3D3B;
+  background: rgba(91, 153, 72, 0.6);
 }
 
 .card-image {
@@ -338,8 +586,11 @@ article.event-card {
   width: 140px;
 }
 
-h3.card, a.card{
-  color: rgb(220, 221, 219);
+h3.card {
+  color: #F7F4F2;;
+}
+ul.location-list, ul.users-list {
+  color: #3E3F40;
 }
 .card {
   padding-left: 10px;
@@ -356,6 +607,17 @@ a.card {
   padding-top: 4px;
 }
 
-a {
- font-family: 'Roboto Condensed', sans-serif;
+/* ------ hello user partial -------- */
+
+h2.user-name {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #3E3F40;
+  color: #F7F4F2;
 }
+
+

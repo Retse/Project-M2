@@ -1,0 +1,21 @@
+<section id="profileEdit">
+<a href="../events/">Go Back</a>
+  <form class="profile-form" method="POST" action="/users/profileEdit" enctype="multipart/form-data">
+    <div class="form-field" >
+      <label>Image</label>
+      <input type="file" name="image"/>
+    </div>
+    <div class="form-field" >
+      <label>Tagline</label>
+      <input type="text" name="tagline" value="<%= user.tagline  %>"/>
+    </div>
+    <div class="form-field" >
+      <label>About Me</label>
+      <input type="text" name="aboutme" value="<%= user.aboutme %>"/>
+     </div>
+     <div class="field submit">
+      <button class="edit-profile" type="submit">Edit</button>
+    </div>
+  </form>
+</section> 
+<%- include partials/navbar.ejs %>

@@ -1,18 +1,21 @@
 <nav class=" navbar  container ">
-  <ul class="nav-div  container">
-    <div class="container  link-container">
-      <li><a href="/events"><img src="/images/trail.png" alt="" width="34px" height="34px"></a></li>
-    </div>
-    <div class="container  link-container">
-      <li><a href=""><img src="/images/hiking2.png" alt="" width="30px" height="32px"></a></li> 
-    </div>
-    <div class="container  link-container">
-      <li><a href="/users"><img src="/images/user-icon3.png" alt="" width="30px" height="32px"></a></li>
-  </div>
-  <form class=" log-out  form container  flex-column  align-items-center " method="POST" action="/auth/logout">
-    <div class="container  link-container">
-        <li><button type="submit"><img src="/images/logout-icon.png" alt="" width="38px" height="36px"></button></li> 
-    </div>
-  </form>  
+  <ul class="nav-div  container  justify-cont-around ">
+    <li>
+      <div class="container link-container">
+        <a href="/events"><img class="invert-color" src="/images/trail.png" alt="" width="48px" height="48px"></a>
+      </div>
+    </li>  
+    <li>
+      <div class="container link-container">
+      <a href="/users"><img class="invert-color" src="/images/user-icon3.png" alt="" width="30px" height="32px"></a>
+      </div>
+    <li>  
+      <div class="container flex-column link-container">
+        <form class=" log-out  form container  flex-column  align-items-center " method="POST" action="/auth/logout">
+          <button type="submit"><img class="invert-color" src="/images/logout-icon.png" alt="" width="38px" height="36px"></button>
+        </form>
+      </div>
+    </li>   
+    </form>  
   </ul>
 </nav>
