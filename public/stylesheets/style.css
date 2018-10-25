@@ -61,6 +61,15 @@ body {
   width: 100%;
 }
 
+.navbar ul {
+  padding: 5px;
+}
+
+.nav-bar li {
+  width: 50px;
+  height: 50px;
+}
+
 img.invert-color {
 	-webkit-filter: invert(1) hue-rotate(180deg) contrast(2);
   filter: invert(1) hue-rotate(180deg) contrast(2);
@@ -68,7 +77,7 @@ img.invert-color {
 
 
 .navbar .link-container{
-  width: 25%;
+  width: 100%;
 }
 
 
