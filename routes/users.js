@@ -48,4 +48,20 @@ router.post('/profileEdit', middlewares.requireUser, upload.single('image'), (re
     .catch(next);
 });
 
+/* --------- GET See other user Profile --------- */
+// router.get('/:_id', (req, res, next) => {
+//   const id = req.params._id;
+//   // const { _id: id } = req.params
+//   //  if (ObjectId.isValid(id)) {
+//   Event.findById(id)
+//     .populate('participants')
+//     .populate('guide')
+//     .then((event) => {
+//       res.render('events/event-detail', { event });
+//     })
+//     .catch(next);
+//   // }
+//   // next();
+// });
+
 module.exports = router;
