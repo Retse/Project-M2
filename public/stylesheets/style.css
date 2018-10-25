@@ -10,8 +10,6 @@ body {
   padding: 0;
 }
 
-
-
 li, ul {
   list-style: none;
 }
@@ -34,6 +32,10 @@ body {
 a.go-back {
   margin-left: 10px;
   padding-top: 10px;
+}
+
+p {
+  color: #000000;
 }
 
 h2 {
@@ -283,7 +285,7 @@ p.btn a {
 }
 
 .buttons-container {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 /* ----------- form -----------*/
@@ -314,7 +316,7 @@ p.btn a {
   padding-top: 5px;
 }
 
-.events-form .submit button {
+.events-form .submit button, .join .submit button {
   color: #537048;
   padding: 5px 0px;
   border: 1.5px grey solid;
@@ -340,8 +342,68 @@ article.event {
   margin-top: 15px;
 }
 
-#participants {
+.event-title {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+div.image-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+img.event-image{
+  width: 100%;
+}
+
+p.event-info, ul.location-list {
+  margin: 10px 10px 0px 30px;
+  font-size: 16px;
+}
+
+div.info-container {
+  padding: 20px 0;
+  background: rgba(91, 153, 72, 0.6);
+}
+
+span.title {
+  font-weight: bold;
+}
+#event-detail{
   margin-bottom: 30%;
+}
+
+ul.users-list {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+a.user-link {
+  color: #F7F4F2;
+  text-decoration: none;
+}
+div.users-list {
+  margin: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+div.user-info {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 10px;
+  text-align: center;
+}
+
+img.user-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: solid 1px #47603E;
 }
 
 /* ------------ Error View 500 ----------------*/
@@ -364,7 +426,7 @@ article.event {
 /*-------------------- Flash messages Partial  ----------------------*/
 .flash-messages {
   color: #5B9948;
-  /* margin-top: 10px; */
+  margin-top: 5px;
   font-size: 18px;
 }
 
@@ -387,9 +449,7 @@ article.event-card {
   border-radius: 10px;
   border: solid 1px #3C3D3B;
   box-shadow: 3px 3px 5px #3C3D3B;
-  /* margin-bottom: 15px; */
-  background: rgba(91, 153, 72, 0.8);
-  color: black;
+  background: rgba(91, 153, 72, 0.6);
 }
 
 .card-image {
@@ -398,8 +458,11 @@ article.event-card {
   width: 140px;
 }
 
-h3.card, a.card{
+h3.card {
   color: #F7F4F2;;
+}
+ul.location-list, ul.users-list {
+  color: #000000;
 }
 .card {
   padding-left: 10px;
