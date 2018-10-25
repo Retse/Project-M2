@@ -8,6 +8,7 @@ const userSchema = new Schema({
   dateOfBirth: Date,
   aboutme: String,
   tagline: String,
+  image: String,
   routes: [{
     type: ObjectId,
     ref: 'Event'

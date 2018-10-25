@@ -1,9 +1,8 @@
-<%- include  ../notifications.ejs %> 
-<img src="/images/Copy of Iron Hack-8704.jpg" alt="profile picture" srcset="">
-  <div class="  container  flex-column ">
-    <p><strong>User Name:</strong> <%= user.username %></p>
-    <p><strong>Tagline:</strong><%= user.tagline %></p>
-    <p><strong>About me:<strong><%= user.aboutme %></p>
-    <a href="/users/profileEdit" class="edit-profile">Edit your profile</a>
-  </div>
+<img src="<%= user.image %>" alt="profile picture" srcset="">
+    <div class="  container  flex-column ">
+      <p><strong>User Name:</strong> <%= user.username %></p>
+      <p><strong>Tagline:</strong><%= user.tagline %></p>
+      <p><strong>About me:<strong><%= user.aboutme %></p>
+      <a href="/users/profileEdit" class="edit-profile">Edit your profile</a>
+    </div>
     

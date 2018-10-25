@@ -1,9 +1,9 @@
 <section id="profileEdit">
 <a href="../events/">Go Back</a>
-  <form class="profile-form" method="POST" action="/users/profileEdit">
+  <form class="profile-form" method="POST" action="/users/profileEdit" enctype="multipart/form-data">
     <div class="form-field" >
       <label>Image</label>
-      <input type="text" name="image" value="<%= user.image %>"/>
+      <input type="file" name="image"/>
     </div>
     <div class="form-field" >
       <label>User Name</label>
@@ -21,5 +21,5 @@
       <button type="submit">Edit</button>
     </div>
   </form>
-  <%- include partials/navbar.ejs %>
 </section> 
+<%- include partials/navbar.ejs %>

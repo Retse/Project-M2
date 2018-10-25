@@ -6,6 +6,7 @@ const middlewares = require('../middlewares/middlewares');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const flashMessages = require('../middlewares/notifications');
+const upload = require('../services/cloudinary.js');
 
 /* GET users listing. */
 router.get('/', middlewares.requireUser, (req, res, next) => {
@@ -32,11 +33,12 @@ router.get('/profileEdit', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
-router.post('/profileEdit', middlewares.requireUser, (req, res, next) => {
+router.post('/profileEdit', middlewares.requireUser, upload.single('image'), (req, res, next) => {
   const userId = req.session.currentUser._id;
   const { tagline, aboutme } = req.body;
+  const image = req.file.url;
 
-  User.findByIdAndUpdate(userId, { tagline: `${tagline}`, aboutme: `${aboutme}` })
+  User.findByIdAndUpdate(userId, { tagline: `${tagline}`, aboutme: `${aboutme}`, image: `${image}` })
     .then(user => {
       req.flash('info', flashMessages.profileEdit);
       res.redirect('/users');
