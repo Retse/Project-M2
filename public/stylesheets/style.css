@@ -92,7 +92,10 @@ img.invert-color {
   width: 100%;
 }
 
-
+.navbar button {
+  background-color: #3E3F40;
+    border: none;
+}
 
 
 /* ------------------------------------- Home Page View --------------------------------------*/
@@ -146,6 +149,8 @@ img.invert-color {
     border: none;
     font-size: 14px;
   }
+
+
 
   
   .log-signup .field {
