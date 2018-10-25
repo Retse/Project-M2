@@ -76,8 +76,6 @@ router.get('/:_id/edit', middlewares.requireUser, (req, res, next) => {
   const userId = req.session.currentUser._id;
   Event.findById(eventId)
     .then(event => {
-      console.log(event.guide[0] + ' event guide');
-      console.log(userId + ' current user');
       const isGuide = event.guide.some(guide => {
         return guide.equals(userId);
       });
