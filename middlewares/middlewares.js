@@ -4,28 +4,20 @@
 function requireUser (req, res, next) {
   const user = req.session.currentUser;
 
-  if (!user) {
-    return res.redirect('/');
-  } else {
-    next();
-  }
+  if (!user) { return res.redirect('/'); }
+  next();
 }
 
 function requireAnon (req, res, next) {
   const user = req.session.currentUser;
 
-  if (user) {
-    return res.redirect('/');
-  } else {
-    next();
-  }
+  if (user) { return res.redirect('/'); }
+  next();
 }
 
 function userLoggedIn (req, res, next) {
   const user = req.session.currentUser;
-  if (user) {
-    return res.redirect('/events');
-  }
+  if (user) { return res.redirect('/events'); }
   next();
 }
 

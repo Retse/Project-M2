@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const middlewares = require('../middlewares/middlewares');
 const flashMessages = require('../middlewares/notifications');
-const moment = require('moment');
 
 router.get('/', middlewares.requireUser, (req, res, next) => {
   Event.find().sort({ date: 1 })
@@ -17,10 +16,12 @@ router.get('/', middlewares.requireUser, (req, res, next) => {
     });
 });
 
+/* --------- Create Event GET --------- */
 router.get('/create', middlewares.requireUser, (req, res, next) => {
   res.render('events/create');
 });
 
+/* --------- Create Event POST --------- */
 router.post('/create', middlewares.requireUser, (req, res, next) => {
   const {
     title,
@@ -64,6 +65,7 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
+/* --------- Find Event Filter --------- */
 router.post('/list', middlewares.requireUser, (req, res, next) => {
   req.session.city = req.body.city;
   res.redirect('/events/list');
@@ -79,9 +81,11 @@ router.get('/list', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
+/* --------- Edit Event GET --------- */
 router.get('/:_id/edit', middlewares.requireUser, (req, res, next) => {
   const eventId = req.params._id;
   const userId = req.session.currentUser._id;
+
   Event.findById(eventId)
     .then(event => {
       const isGuide = event.guide.some(guide => {
@@ -97,6 +101,7 @@ router.get('/:_id/edit', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
+/* --------- Edit Event POST --------- */
 router.post('/:_id', middlewares.requireUser, (req, res, next) => {
   const event = req.body;
   const id = req.params._id;
@@ -109,6 +114,7 @@ router.post('/:_id', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
+/* --------- Event Detail --------- */
 router.get('/:_id', (req, res, next) => {
   const id = req.params._id;
   // const { _id: id } = req.params
@@ -124,6 +130,7 @@ router.get('/:_id', (req, res, next) => {
   // next();
 });
 
+/* --------- Join Event Post --------- */
 router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
   const userId = req.session.currentUser._id;
   const eventId = req.params._id;
@@ -149,6 +156,7 @@ router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
+/* --------- Post Event Leave --------- */
 router.post('/:_id/leave', middlewares.requireUser, (req, res, next) => {
   const userId = req.session.currentUser._id;
   const eventId = req.params._id;
@@ -164,14 +172,17 @@ router.post('/:_id/leave', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
+/* --------- Post Event Delete --------- */
 router.post('/:_id/delete-event', middlewares.requireUser, (req, res, next) => {
   const eventId = req.params._id;
   const userId = req.session.currentUser._id;
+
   Event.findById(eventId)
     .then(event => {
       const isGuide = event.guide.some(guide => {
         return guide.equals(userId);
       });
+
       if (isGuide) {
         Event.findByIdAndDelete(eventId)
           .then(() => {
