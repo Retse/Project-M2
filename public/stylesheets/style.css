@@ -205,7 +205,7 @@ feed {
   .profile-info {
     padding: 20px 20px 10px 20px;
     border-bottom: grey 0.5px solid;
-    box-shadow: 0 0 5px #CFEDC4;
+    box-shadow: 0 0 5px black;
     margin-bottom: 15px;
     background: rgba(207, 237, 196, 0.2);
   } 
@@ -218,9 +218,12 @@ feed {
   }
 
   .profile-info div {
-    padding-top: 20px;
     display: flex;
     justify-content: center;
+  }
+
+  div.info-profile {
+color: #3E3F40;
   }
 
   .profile-info p {
@@ -238,6 +241,13 @@ feed {
   h3.upcomming-events {
     margin-left: 20px;
     width: 100%;
+    font-size: 20px;
+    color: #3C3D3B;
+  }
+
+  p.username {
+    font-size: 30px;
+    align-self: center;
   }
 
   li.upcomming-events {
@@ -246,19 +256,24 @@ feed {
   border: solid 1px #3C3D3B;
   box-shadow: 3px 3px 5px #3C3D3B;
   /* margin-bottom: 15px; */
-  background: rgba(91, 153, 72, 0.8);
-  color: black;
-  margin: 10px 20px;
+  background: #707B7C;
+  color: #ECF0F1;
+  margin: 10px 0px
+  }
+
+  button.edit-profile {
+    color: #537048;
+    padding: 5px 0px;
+    border: 1.5px grey solid;
+    border-radius: 30px;
+    width: 35%;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 15px;
   }
 
   a.edit-profile {
-  color: #537048;
-  padding: 5px 5px;
-  border: 1.5px grey solid;
-  border-radius: 30px;
-  text-align: center;
-  font-size: 12px;
-  margin-top: 15px;
+    text-decoration: none;
   }
 
   div.image-container {
@@ -267,10 +282,22 @@ feed {
 
   ul.upcomming-events {
     padding: 0px 15px 20px 15px;
+   
   }
 
+  section.profile-info {
+    background:rgba(91, 153, 72, 0.8);;
+  }
 
+  div.follow {
+    padding-bottom: 80px;
+  }
 
+/*-------------------------------------------- Edit profil -------------------------------------*/
+
+div.form-field {
+
+}
 
 /* ------------------------------------------- Errors Views ------------------------------------*/
 
