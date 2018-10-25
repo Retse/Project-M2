@@ -8,6 +8,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  min-height: 650px;
 }
 
 
@@ -44,6 +45,7 @@ body {
 .align-items-end        { align-items    : flex-start   ;}
 .flex-row               { flex-direction : row          ;}
 .flex-column            { flex-direction : column       ;}
+.flex-wrap              { flex-wrap      : wrap         ;}
 
 
 
@@ -191,17 +193,15 @@ feed {
 
   .profile-info img {
     border-radius: 50%;
-    margin-top: 2%;
-    margin-left: 2%;
     width: 120px;
     height: 120px;
     border: solid;
   }
 
   .profile-info div {
-    padding: 20px;
-    margin-left: 15px;
-    width: 60%;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
   }
 
   .profile-info p {
@@ -218,6 +218,36 @@ feed {
 
   h3.upcomming-events {
     margin-left: 20px;
+    width: 100%;
+  }
+
+  li.upcomming-events {
+    padding: 10px;
+  border-radius: 10px;
+  border: solid 1px #3C3D3B;
+  box-shadow: 3px 3px 5px #3C3D3B;
+  /* margin-bottom: 15px; */
+  background: rgba(91, 153, 72, 0.8);
+  color: black;
+  margin: 10px 20px;
+  }
+
+  a.edit-profile {
+  color: #537048;
+  padding: 5px 5px;
+  border: 1.5px grey solid;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 15px;
+  }
+
+  div.image-container {
+    width: 100%;
+  }
+
+  ul.upcomming-events {
+    padding: 0px 15px 20px 15px;
   }
 
 

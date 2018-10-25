@@ -1,8 +1,12 @@
+<article class="container flex-wrap">
+<div class="image-container">
 <img src="<%= user.image %>" alt="profile picture" srcset="">
+</div>
     <div class="  container  flex-column ">
       <p><strong>User Name:</strong> <%= user.username %></p>
-      <p><strong>Tagline:</strong><%= user.tagline %></p>
-      <p><strong>About me:<strong><%= user.aboutme %></p>
-      <a href="/users/profileEdit" class="edit-profile">Edit your profile</a>
+      <p><strong>Tagline:</strong> <%= user.tagline %></p>
+      <p><strong>About me:</strong> <%= user.aboutme %></p>
     </div>
+    <a href="/users/profileEdit" class="edit-profile">Edit your profile</a>
+</article>
     
