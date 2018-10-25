@@ -511,7 +511,7 @@ div.edit {
   align-items: center;
 }
 
-form.edit-form {
+form.create-form, form.edit-form {
   padding: 15px 15px;
   margin-bottom: 50px;
 }
