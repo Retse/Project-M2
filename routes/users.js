@@ -42,7 +42,7 @@ router.post('/profileEdit', middlewares.requireUser, upload.single('image'), (re
   let image;
 
   if (req.file) {
-    image = req.file.url;
+    image = req.file.secure_url;
   } else {
     image = req.session.currentUser.image;
   }
