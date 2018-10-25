@@ -24,6 +24,8 @@ router.get('/', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
+/* Edit Profile */
+
 router.get('/profileEdit', middlewares.requireUser, (req, res, next) => {
   const userId = req.session.currentUser._id;
   User.findById(userId)

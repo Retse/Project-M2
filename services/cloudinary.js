@@ -12,7 +12,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_SECRET
 });
 
-var storage = cloudinaryStorage({
+const storage = cloudinaryStorage({
   cloudinary: cloudinary,
   folder: 'hiker', // The name of the folder in cloudinary
   allowedFormats: ['jpg', 'png', 'gif'],

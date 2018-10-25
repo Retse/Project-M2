@@ -1,8 +1,8 @@
 <section id="events-create">
-<a href="../events/">Go Back</a>
+  <a class="link go-back" href="../events/">Go Back</a>
   <form class="events-form" method="POST" action="/events/create">
     <div class="form-field" >
-      <label>Title</label>
+      <label>Title *</label>
       <input type="text" name="title" placeholder="introduce event name"/>
     </div>
     <div class="form-field" >
@@ -10,11 +10,11 @@
       <input type="text" name="image" placeholder="image url"/>
     </div>
     <div class="form-field" >
-      <label>Date</label>
+      <label>Date *</label>
       <input type="date" name="date"/>
     </div>
     <div class="form-field" >
-      <label>City</label>
+      <label>City *</label>
       <input type="text" name="city" placeholder="introduce city"/>
     </div>
     <div class="form-field" >
@@ -30,7 +30,7 @@
       <input type="text" name="startingPoint" placeholder="introduce route's starting point"/>
     </div>
     <div class="form-field" >
-      <label>Description</label>
+      <label>Description *</label>
       <input class="description" type="text" name="description" placeholder="introduce event's description"/>
     </div>
     <div class="form-field" >
@@ -50,7 +50,7 @@
     </div>
     <div class="form-field" >
       <label>Duration</label>
-      <input type="number" name="duration" placeholder="introduce time in minutes"/>
+      <input type="number" name="duration" placeholder="introduce time in hours"/>
     </div>
     <div class="form-field" >
       <label>Distance</label>

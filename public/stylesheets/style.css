@@ -32,6 +32,15 @@ body {
   display: none;
 }
 
+a.go-back {
+  margin-left: 10px;
+  padding-top: 10px;
+}
+
+h2 {
+color:rgb(91, 153, 72);
+}
+
 /*------------- Flex Utilities -------------------*/
 
 .container              { display        : flex         ;}
@@ -63,6 +72,15 @@ body {
   width: 100%;
 }
 
+.navbar ul {
+  padding: 5px;
+}
+
+.nav-bar li {
+  width: 50px;
+  height: 50px;
+}
+
 img.invert-color {
 	-webkit-filter: invert(1) hue-rotate(180deg) contrast(2);
   filter: invert(1) hue-rotate(180deg) contrast(2);
@@ -70,7 +88,7 @@ img.invert-color {
 
 
 .navbar .link-container{
-  width: 25%;
+  width: 100%;
 }
 
 
@@ -167,8 +185,9 @@ img.invert-color {
     color: white;
   }
 
-  a.toggle-signup {
+  a.link, .toggle-signup {
     color:rgb(91, 153, 72);
+    text-decoration: none;
   }
 
 
@@ -345,7 +364,12 @@ p.btn a {
   margin-top: 50px;
 }
 
-/* ---------------------- Event Detail ----------------------------*/
+/* ------------------------------ Event Detail --------------------------------------*/
+
+article.event {
+  margin-top: 15px;
+}
+
 #participants {
   margin-bottom: 30%;
 }

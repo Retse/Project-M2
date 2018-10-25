@@ -1,9 +1,15 @@
 <section id="event-detail">
   <article class="event">
-    <a href="/events">Go back</a>
+    <a class="link go-back" href="/events">Go back</a>
     <%- include ../partials/notifications.ejs %> 
+
     <h2 class="event-title"><%= event.title %></h2>
     <a href="/events/<%= event._id%>/edit" class="edit-event">Edit</a>
+    <form class="delete-event" method="POST" action='/events/<%= event._id %>/delete-event'>
+    <div class="container  link-container">
+        <button type="submit">Delete event</button>
+    </div>
+    </form>
     <div class="event-image">
       <img src="<%= event.image %>" alt="event image" class="card-image">
     </div>
@@ -12,7 +18,7 @@
         <%= user.username %>
      <% }) %>
     </p>
-    <p class="event-info date">Date: <%= event.date %></p>
+    <p class="event-info date">Date: <%= event.date.toDateString()%></p>
     <p class="event-info">Location:</p>
       <ul>
         <li>City: <%= event.location.city  %></li>
