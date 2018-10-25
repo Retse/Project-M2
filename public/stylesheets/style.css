@@ -246,6 +246,13 @@ color: #3E3F40;
     color: #3C3D3B;
   }
 
+  h3.follow {
+    margin-left: 20px;
+    width: 100%;
+    font-size: 20px;
+    color: #3C3D3B;
+  }
+
   p.username {
     font-size: 30px;
     align-self: center;
