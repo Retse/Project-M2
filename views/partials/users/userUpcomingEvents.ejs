@@ -1,6 +1,7 @@
 <h3 class="upcomming-events">Upcomming events</h3>
+<ul class="upcomming-events">  
   <% event.forEach(event => { %>
-  <ul>
-  <li> <%= event.title  %> </li>
-  </ul>
-<% }) %>
+    <li class="upcomming-events"> <%= event.title  %>
+    <%= event.date  %></li>
+    <% }) %>
+</ul>

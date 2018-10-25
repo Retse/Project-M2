@@ -2,14 +2,13 @@
   <!-- to include Profile Partial -->
   <%- include partials/users/profilePartial.ejs %>
 </section>
- 
 <section class="  profile-events  container  flex-column">
     <!-- To include events partials -->
-    <div class="  upcomming-events  container">
+    <div class="flex-wrap  upcomming-events  container">
       <%- include partials/users/userUpcomingEvents.ejs %>
     </div>
-    <div class="  past-events  container">
-      <h3 class="past-events">Past events</h3>
+    <div class="  follow  container">
+      <h3 class="past-events">Follow</h3>
     </div>
 </section>
 <%- include partials/navbar.ejs %>
