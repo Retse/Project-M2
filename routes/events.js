@@ -16,12 +16,12 @@ router.get('/', middlewares.requireUser, (req, res, next) => {
     });
 });
 
-/* --------- Create Event GET --------- */
+/* --------- GET Create Event --------- */
 router.get('/create', middlewares.requireUser, (req, res, next) => {
   res.render('events/create');
 });
 
-/* --------- Create Event POST --------- */
+/* ---------  POST Create Event --------- */
 router.post('/create', middlewares.requireUser, (req, res, next) => {
   const {
     title,
@@ -65,7 +65,23 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
-/* --------- Find Event Filter --------- */
+/* --------- GET Event Detail --------- */
+router.get('/:_id', (req, res, next) => {
+  const id = req.params._id;
+  // const { _id: id } = req.params
+  //  if (ObjectId.isValid(id)) {
+  Event.findById(id)
+    .populate('participants')
+    .populate('guide')
+    .then((event) => {
+      res.render('events/event-detail', { event });
+    })
+    .catch(next);
+  // }
+  // next();
+});
+
+/* --------- POST Find Event Filter --------- */
 router.post('/list', middlewares.requireUser, (req, res, next) => {
   req.session.city = req.body.city;
   res.redirect('/events/list');
@@ -81,7 +97,7 @@ router.get('/list', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
-/* --------- Edit Event GET --------- */
+/* --------- GET Edit Event --------- */
 router.get('/:_id/edit', middlewares.requireUser, (req, res, next) => {
   const eventId = req.params._id;
   const userId = req.session.currentUser._id;
@@ -101,7 +117,7 @@ router.get('/:_id/edit', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
-/* --------- Edit Event POST --------- */
+/* --------- POST Edit Event --------- */
 router.post('/:_id', middlewares.requireUser, (req, res, next) => {
   const event = req.body;
   const id = req.params._id;
@@ -114,23 +130,7 @@ router.post('/:_id', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
-/* --------- Event Detail --------- */
-router.get('/:_id', (req, res, next) => {
-  const id = req.params._id;
-  // const { _id: id } = req.params
-  //  if (ObjectId.isValid(id)) {
-  Event.findById(id)
-    .populate('participants')
-    .populate('guide')
-    .then((event) => {
-      res.render('events/event-detail', { event });
-    })
-    .catch(next);
-  // }
-  // next();
-});
-
-/* --------- Join Event Post --------- */
+/* --------- POST Join Event  --------- */
 router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
   const userId = req.session.currentUser._id;
   const eventId = req.params._id;
@@ -156,7 +156,7 @@ router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
-/* --------- Post Event Leave --------- */
+/* --------- POST Event Leave --------- */
 router.post('/:_id/leave', middlewares.requireUser, (req, res, next) => {
   const userId = req.session.currentUser._id;
   const eventId = req.params._id;
@@ -172,7 +172,7 @@ router.post('/:_id/leave', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
-/* --------- Post Event Delete --------- */
+/* --------- POST Event Delete --------- */
 router.post('/:_id/delete-event', middlewares.requireUser, (req, res, next) => {
   const eventId = req.params._id;
   const userId = req.session.currentUser._id;

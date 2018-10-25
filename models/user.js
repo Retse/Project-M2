@@ -9,6 +9,10 @@ const userSchema = new Schema({
   aboutme: String,
   tagline: String,
   image: String,
+  followers: [{
+    type: ObjectId,
+    ref: 'User'
+  }],
   routes: [{
     type: ObjectId,
     ref: 'Event'

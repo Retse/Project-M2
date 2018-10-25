@@ -1,0 +1,8 @@
+<% user.followers.forEach(follower =>{ %>
+  <div class="user-info">
+    <a class="user-link link" href="/users/<%= follower._id %>">
+      <img class="user-icon" src="<%= follower.image %>" alt="user image"></li>
+      <p class="user-icon-tag"><%= follower.username %>&emsp;</p> 
+    </a>
+  </div>
+<% }) %>

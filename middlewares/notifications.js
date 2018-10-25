@@ -10,6 +10,7 @@ const eventEdited = 'Your event has been successfully updated!';
 const correctLogin = 'You have logged-in successfully';
 const profileEdit = 'Your profile has been successfully updated!';
 const cantEdit = 'Sorry, you can only edit your events!';
+const alreadyFollowing = 'You are already following this user';
 
 module.exports = {
   joinEvent,
@@ -21,5 +22,6 @@ module.exports = {
   eventEdited,
   correctLogin,
   profileEdit,
-  cantEdit
+  cantEdit,
+  alreadyFollowing
 };
