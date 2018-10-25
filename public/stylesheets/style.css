@@ -11,8 +11,6 @@ body {
   min-height: 650px;
 }
 
-
-
 li, ul {
   list-style: none;
 }
@@ -37,8 +35,13 @@ a.go-back {
   padding-top: 10px;
 }
 
+p {
+  color: #3E3F40;
+}
+
 h2 {
 color:rgb(91, 153, 72);
+font-size: 2em;
 }
 
 /*------------- Flex Utilities -------------------*/
@@ -65,11 +68,10 @@ color:rgb(91, 153, 72);
   width: 100%;
   position: fixed;
   bottom: 0;
- 
 }
 .nav-div {
-  
   width: 100%;
+  height: 40px;
 }
 
 .navbar ul {
@@ -85,7 +87,6 @@ img.invert-color {
 	-webkit-filter: invert(1) hue-rotate(180deg) contrast(2);
   filter: invert(1) hue-rotate(180deg) contrast(2);
 }
-
 
 .navbar .link-container{
   width: 100%;
@@ -340,7 +341,7 @@ p.btn a {
 }
 
 .buttons-container {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 /* ----------- form -----------*/
@@ -392,13 +393,110 @@ p.btn a {
 }
 
 /* ------------------------------ Event Detail --------------------------------------*/
+nav.event-navbar {
+  background-color: #3E3F40;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+a.nav-link {
+  color: #F7F4F2;
+}
+
+button.del-event {
+  color: #F7F4F2;
+  font-size: 14px;
+}
 
 article.event {
   margin-top: 15px;
 }
 
-#participants {
-  margin-bottom: 30%;
+.event-title {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+img.event-image{
+  width: 100%;
+  margin-bottom: -3px;
+}
+
+p.event-info, ul.location-list {
+  margin: 10px 10px 0px 30px;
+  font-size: 16px;
+}
+
+div.info-container {
+  padding: 20px 0 10px 0;
+  background: rgba(91, 153, 72, 0.6);
+}
+
+span.title {
+  font-weight: bold;
+}
+#event-detail{
+  margin-bottom: 20%;
+}
+
+ul.users-list {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+a.user-link {
+  color: #3E3F40;
+  text-decoration: none;
+}
+
+div.users-list {
+  margin: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+div.user-info {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 10px;
+}
+
+p.user-icon-tag {
+  margin-top: 2px;
+}
+
+img.user-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: solid 1px #47603E;
+}
+
+article.participants {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+button.join {
+  width: 120px;
+  padding: 5px 3px;
+  border: 1.5px grey solid;
+  font-size: 14px;
+  background-color: #F7F4F2;
+  border-radius: 30px;
+  text-align: center;
+  padding: 5px 0px;
+  color: #537048;
 }
 
 /* ------------ Error View 500 ----------------*/
@@ -421,7 +519,7 @@ article.event {
 /*-------------------- Flash messages Partial  ----------------------*/
 .flash-messages {
   color: #5B9948;
-  /* margin-top: 10px; */
+  margin-top: 5px;
   font-size: 18px;
 }
 
@@ -444,9 +542,7 @@ article.event-card {
   border-radius: 10px;
   border: solid 1px #3C3D3B;
   box-shadow: 3px 3px 5px #3C3D3B;
-  /* margin-bottom: 15px; */
-  background: rgba(91, 153, 72, 0.8);
-  color: black;
+  background: rgba(91, 153, 72, 0.6);
 }
 
 .card-image {
@@ -455,8 +551,11 @@ article.event-card {
   width: 140px;
 }
 
-h3.card, a.card{
+h3.card {
   color: #F7F4F2;;
+}
+ul.location-list, ul.users-list {
+  color: #3E3F40;
 }
 .card {
   padding-left: 10px;
