@@ -36,7 +36,7 @@ a.go-back {
 }
 
 p {
-  color: #000000;
+  color: #3E3F40;
 }
 
 h2 {
@@ -392,7 +392,7 @@ p.event-info, ul.location-list {
 }
 
 div.info-container {
-  padding: 20px 0;
+  padding: 20px 0 10px 0;
   background: rgba(91, 153, 72, 0.6);
 }
 
@@ -411,22 +411,25 @@ ul.users-list {
 }
 
 a.user-link {
-  color: #F7F4F2;
+  color: #3E3F40;
   text-decoration: none;
 }
+
 div.users-list {
   margin: 5px 15px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-
 }
 
 div.user-info {
   display: flex;
   flex-direction: column;
   padding: 4px 10px;
-  text-align: center;
+}
+
+p.user-icon-tag {
+  margin-top: 2px;
 }
 
 img.user-icon {
@@ -492,7 +495,7 @@ h3.card {
   color: #F7F4F2;;
 }
 ul.location-list, ul.users-list {
-  color: #000000;
+  color: #3E3F40;
 }
 .card {
   padding-left: 10px;
