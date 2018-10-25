@@ -35,7 +35,7 @@
       <div class="users-list">  
       <% event.participants.forEach(user => { %>
         <div class="user-info">
-          <a class="user-link link" href="">
+          <a class="user-link link" href="/users/<%= user._id %>">
             <img class="user-icon" src="<%= user.image %>" alt="user image"></li>
             <p class="user-icon-tag"><%= user.username %>&emsp;</p> 
           </a>

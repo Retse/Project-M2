@@ -8,7 +8,7 @@ const ObjectId = mongoose.Types.ObjectId;
 const flashMessages = require('../middlewares/notifications');
 const upload = require('../services/cloudinary.js');
 
-/* GET users listing. */
+/* GET users profile. */
 router.get('/', middlewares.requireUser, (req, res, next) => {
   const userId = req.session.currentUser._id;
   User.findById(userId)
@@ -28,6 +28,7 @@ router.get('/', middlewares.requireUser, (req, res, next) => {
 
 router.get('/profileEdit', middlewares.requireUser, (req, res, next) => {
   const userId = req.session.currentUser._id;
+
   User.findById(userId)
     .then(user => {
       res.render('profileEdit', { 'user': user });
@@ -55,19 +56,51 @@ router.post('/profileEdit', middlewares.requireUser, upload.single('image'), (re
 });
 
 /* --------- GET See other user Profile --------- */
-// router.get('/:_id', (req, res, next) => {
-//   const id = req.params._id;
-//   // const { _id: id } = req.params
-//   //  if (ObjectId.isValid(id)) {
-//   Event.findById(id)
-//     .populate('participants')
-//     .populate('guide')
-//     .then((event) => {
-//       res.render('events/event-detail', { event });
-//     })
-//     .catch(next);
-//   // }
-//   // next();
-// });
+router.get('/:_id', (req, res, next) => {
+  const id = req.params._id;
+  const currentUserId = req.session.currentUser._id;
+
+  if (currentUserId === id) {
+    return res.redirect('/users');
+  }
+
+  User.findById(id)
+    .populate('followers')
+    .then((user) => {
+      Event.find({
+        participants: ObjectId(id)
+      })
+        .then(event => {
+          res.render('users/otherUserProfile', { 'user': user, 'event': event });
+        })
+        .catch(next);
+    });
+});
+
+/* --------- POST Follow Other Users --------- */
+
+router.post('/:_id/follow', (req, res, next) => {
+  const userToFollowId = req.params._id;
+  const currentUserId = req.session.currentUser._id;
+
+  User.findById(userToFollowId)
+    .then((user) => {
+      const isFollowing = user.followers.some(follower => {
+        return follower.equals(currentUserId);
+      });
+
+      if (isFollowing) {
+        req.flash('info', flashMessages.alreadyFollowing);
+        return res.redirect(`/users/${userToFollowId}`);
+      }
+
+      user.followers.push(ObjectId(currentUserId));
+      user.save()
+        .then(
+          res.redirect(`/users/${userToFollowId}`)
+        )
+        .catch(next);
+    });
+});
 
 module.exports = router;
