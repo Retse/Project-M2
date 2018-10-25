@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const middlewares = require('../middlewares/middlewares');
 const flashMessages = require('../middlewares/notifications');
+const moment = require('moment');
 
 router.get('/', middlewares.requireUser, (req, res, next) => {
   Event.find().sort({ date: 1 })
@@ -34,6 +35,13 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
     duration,
     distance
   } = req.body;
+
+  const requiredFields = [ title, date, city, description ];
+
+  if (requiredFields.includes('')) {
+    req.flash('info', flashMessages.allFieldsCompleteError);
+    return res.redirect('/events/');
+  }
 
   const newEvent = new Event({
     title,
@@ -166,7 +174,7 @@ router.post('/:_id/delete-event', middlewares.requireUser, (req, res, next) => {
       });
       if (isGuide) {
         Event.findByIdAndDelete(eventId)
-          .then( () => {
+          .then(() => {
             res.redirect('/events');
           })
           .catch(next);
@@ -179,7 +187,6 @@ router.post('/:_id/delete-event', middlewares.requireUser, (req, res, next) => {
 });
 
 module.exports = router;
-
 
 // router.get('/:_id/edit', middlewares.requireUser, (req, res, next) => {
 //   const eventId = req.params._id;
