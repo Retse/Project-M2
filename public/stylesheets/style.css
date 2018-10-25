@@ -31,6 +31,15 @@ body {
   display: none;
 }
 
+a.go-back {
+  margin-left: 10px;
+  padding-top: 10px;
+}
+
+h2 {
+color:rgb(91, 153, 72);
+}
+
 /*------------- Flex Utilities -------------------*/
 
 .container              { display        : flex         ;}
@@ -165,8 +174,9 @@ img.invert-color {
     color: white;
   }
 
-  a.toggle-signup {
+  a.link, .toggle-signup {
     color:rgb(91, 153, 72);
+    text-decoration: none;
   }
 
 
@@ -315,7 +325,12 @@ p.btn a {
   margin-top: 50px;
 }
 
-/* ---------------------- Event Detail ----------------------------*/
+/* ------------------------------ Event Detail --------------------------------------*/
+
+article.event {
+  margin-top: 15px;
+}
+
 #participants {
   margin-bottom: 30%;
 }

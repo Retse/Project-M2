@@ -76,8 +76,6 @@ router.get('/:_id/edit', middlewares.requireUser, (req, res, next) => {
   const userId = req.session.currentUser._id;
   Event.findById(eventId)
     .then(event => {
-      console.log(event.guide[0] + ' event guide');
-      console.log(userId + ' current user');
       const isGuide = event.guide.some(guide => {
         return guide.equals(userId);
       });
@@ -158,4 +156,45 @@ router.post('/:_id/leave', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
+router.post('/:_id/delete-event', middlewares.requireUser, (req, res, next) => {
+  const eventId = req.params._id;
+  const userId = req.session.currentUser._id;
+  Event.findById(eventId)
+    .then(event => {
+      const isGuide = event.guide.some(guide => {
+        return guide.equals(userId);
+      });
+      if (isGuide) {
+        Event.findByIdAndDelete(eventId)
+          .then( () => {
+            res.redirect('/events');
+          })
+          .catch(next);
+      } else {
+        req.flash('info', flashMessages.cantEdit);
+        res.redirect(`/events/${eventId}`);
+      }
+    })
+    .catch(next);
+});
+
 module.exports = router;
+
+
+// router.get('/:_id/edit', middlewares.requireUser, (req, res, next) => {
+//   const eventId = req.params._id;
+//   const userId = req.session.currentUser._id;
+//   Event.findById(eventId)
+//     .then(event => {
+//       const isGuide = event.guide.some(guide => {
+//         return guide.equals(userId);
+//       });
+//       if (isGuide) {
+//         res.render('events/edit', { event: event });
+//       } else {
+//         req.flash('info', flashMessages.cantEdit);
+//         res.redirect(`/events/${eventId}`);
+//       }
+//     })
+//     .catch(next);
+// });
