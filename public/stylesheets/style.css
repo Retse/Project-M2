@@ -274,17 +274,6 @@ color: #3E3F40;
   margin: 10px 0px
   }
 
-  button.edit-profile {
-    color: #537048;
-    padding: 5px 0px;
-    border: 1.5px grey solid;
-    border-radius: 30px;
-    width: 35%;
-    text-align: center;
-    font-size: 12px;
-    margin-top: 15px;
-  }
-
   a.edit-profile {
     text-decoration: none;
   }
@@ -456,6 +445,10 @@ span.title {
   margin-bottom: 20%;
 }
 
+ul.location-list {
+  color: #3E3F40;
+}
+
 ul.users-list {
   text-align: center;
   font-size: 16px;
@@ -499,7 +492,7 @@ article.participants {
   padding-bottom: 15px;
 }
 
-button.join {
+button.join, button.edit-profile, button.edit-event {
   width: 120px;
   padding: 5px 3px;
   border: 1.5px grey solid;
@@ -511,7 +504,7 @@ button.join {
   color: #537048;
 }
 
-/* ------------------------------ Section create/edit event -------------------------------------*/
+/* ------------------------------ Section create/edit event/profile -------------------------------------*/
 div.edit {
   padding-bottom: 15px;
   display: flex;
@@ -545,8 +538,28 @@ div.radio-input {
 
 div.submit-create {
   text-align: center;
-  margin-top: -5px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+h2.edit-title {
+  text-align: center;
+  margin: 15px 0 25px 0;
+}
+section#profileEdit {
+  padding: 10px 15px 0 15px;
+}
+
+div.submit-profile, div.submit-event-edit {
+  text-align: center;
+  margin-top: 20px;
+}
+
+section#events-edit {
+  padding: 10px 15px 40px 15px;
+}
+
+form.edit-prof {
+  margin-bottom: 55px;
 }
 
 /* ------------ Error View 500 ----------------*/
@@ -616,22 +629,21 @@ article.event-card {
 h3.card {
   color: #F7F4F2;;
 }
-ul.location-list, ul.users-list {
-  color: #3E3F40;
-}
+
 .card {
   padding-left: 10px;
-  margin: 2px 0;
-}
-
-.location-list li {
-  padding: 3px 0;
+  margin: 5px 0;
+  color: #3E3F40;
 }
 
 a.card {
   text-align: right;
   text-decoration: none;
   padding-top: 4px;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 /* ------ hello user partial -------- */
