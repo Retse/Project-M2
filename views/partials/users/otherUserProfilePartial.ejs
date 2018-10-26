@@ -3,11 +3,11 @@
     <img src="<%= user.image %>" alt="profile picture" srcset="">
   </div>
   <div class="  info-profile container  flex-column ">
-    <p class= "username"><strong></strong> <%= user.username %></p>
+    <p class= "username"><strong></strong><%= user.username %></p>
     <p><strong>Tagline:</strong> <%= user.tagline %></p>
     <p><strong>About me:</strong> <%= user.aboutme %></p>
   </div>
-  <div>
+  <div class="container flex-wrap">
     <form action="<%= user._id %>/follow" method="POST">
     <button class= "follow" type="submit"> Follow</button>
     </form>  
