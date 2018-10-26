@@ -15,6 +15,7 @@ li, ul {
   list-style: none;
 }
 
+
 /*----------------- General CSS -------------------*/
 body {
  /* background-color: #47603E; */
@@ -92,7 +93,10 @@ img.invert-color {
   width: 100%;
 }
 
-
+.navbar button {
+  background-color: #3E3F40;
+    border: none;
+}
 
 
 /* ------------------------------------- Home Page View --------------------------------------*/
@@ -147,6 +151,8 @@ img.invert-color {
     font-size: 14px;
   }
 
+
+
   
   .log-signup .field {
     width: 85%;
@@ -192,14 +198,17 @@ img.invert-color {
   }
 
 
-/*--------------------   Feed Section  ------------------*/
+/*--------------------   Follow  ------------------*/
 
-feed {
-
+button.follow {
+  color: #537048;
+  padding: 5px 0px;
+  border: 1.5px grey solid;
+  border-radius: 30px;
+  width: 130%;
+  text-align: center;
+  font-size: 14px;
 }
-
-
-
 
   /* ------------------------------------------- Profile View ----------------------------------------*/
 
@@ -235,11 +244,14 @@ color: #3E3F40;
     font-size: 15px;
   }
 
-  h3.past-events {
+  h3.upcomming-events {
     margin-left: 20px;
+    width: 100%;
+    font-size: 20px;
+    color: #3C3D3B;
   }
 
-  h3.upcomming-events {
+  h3.follow {
     margin-left: 20px;
     width: 100%;
     font-size: 20px;
@@ -294,12 +306,6 @@ color: #3E3F40;
     padding-bottom: 80px;
   }
 
-/*-------------------------------------------- Edit profil -------------------------------------*/
-
-div.form-field {
-
-}
-
 /* ------------------------------------------- Errors Views ------------------------------------*/
 
 .error-page {
@@ -346,8 +352,6 @@ p.btn a {
 
 /* ----------- form -----------*/
 
-
-
 .events-form {
   margin: 0 auto;
   text-align: center;
@@ -372,7 +376,7 @@ p.btn a {
   padding-top: 5px;
 }
 
-.events-form .submit button {
+.events-form .submit button, button.create {
   color: #537048;
   padding: 5px 0px;
   border: 1.5px grey solid;
@@ -383,7 +387,6 @@ p.btn a {
   font-size: 14px;
   background-color: #F7F4F2;
 }
-
 
 .error-page h3{
   background-color: rgba(120, 121, 113, 0.5);
@@ -440,6 +443,7 @@ div.info-container {
 span.title {
   font-weight: bold;
 }
+
 #event-detail{
   margin-bottom: 20%;
 }
@@ -499,6 +503,44 @@ button.join {
   color: #537048;
 }
 
+/* ------------------------------ Section create/edit event -------------------------------------*/
+div.edit {
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form.create-form, form.edit-form {
+  padding: 15px 15px;
+  margin-bottom: 50px;
+}
+
+input.edit-create {
+  padding-left: 10px;
+  font-size: 14px;
+  border-radius: 15px;
+  width: 70%;
+  border: grey 0.8px solid;
+  height: 30px;
+}
+
+input.description {
+  height: 60px;
+}
+
+div.radio-input {
+  width: 45px;
+  font-size: 12px;
+  text-align: center;
+}
+
+div.submit-create {
+  text-align: center;
+  margin-top: -5px;
+  margin-bottom: 20px;
+}
+
 /* ------------ Error View 500 ----------------*/
 
 .error-500 {
@@ -512,10 +554,6 @@ button.join {
 
 }
 
-
-
-
-
 /*-------------------- Flash messages Partial  ----------------------*/
 .flash-messages {
   color: #5B9948;
@@ -526,9 +564,6 @@ button.join {
 .alert {
   text-align: center;
 }
-
-
-
 
 /*---------------------------  Partials -----------------------------*/
 
@@ -571,10 +606,6 @@ a.card {
   text-decoration: none;
   padding-top: 4px;
 }
-
-/* a {
- font-family: 'Roboto Condensed', sans-serif;
-} */
 
 /* ------ hello user partial -------- */
 

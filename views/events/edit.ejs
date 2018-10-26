@@ -1,60 +1,62 @@
 <section id="events-edit">
-<a href="/events/<%= event._id %>">Go Back</a>
-  <form class="events-form" method="POST" action="/events/<%= event._id %>">
-    <div class="form-field" >
+<nav class="event-navbar"> 
+<p><a class="nav-link link" href="/events/<%= event._id %>">Go back</a></p>
+</nav>
+  <form class="edit-form" method="POST" action="/events/<%= event._id %>">
+    <div class="edit form-field" >
       <label>Title</label>
-      <input type="text" name="title" value="<%= event.title %>"/>
+      <input class="edit-create" type="text" name="title" value="<%= event.title %>"/>
     </div>
-    <div class="form-field" >
+    <div class="edit form-field" >
       <label>Image</label>
-      <input type="text" name="image" value="<%= event.image %>"/>
+      <input class="edit-create" type="text" name="image" value="<%= event.image %>"/>
     </div>
-    <div class="form-field" >
+    <div class="edit form-field" >
       <label>Date</label>
-      <input type="date" name="date" value="<%= event.date %>"/>
+      <input class="edit-create" type="date" name="date" value="<%= event.date %>"/>
     </div>
-    <div class="form-field" >
+    <div class="edit form-field" >
       <label>City</label>
-      <input type="text" name="location.city" value="<%= event.location.city  %>"/>
+      <input class="edit-create" type="text" name="location.city" value="<%= event.location.city  %>"/>
     </div>
-    <div class="form-field" >
+    <div class="edit form-field" >
       <label>Region</label>
-      <input type="text" name="location.region" value="<%= event.location.region %>"/>
+      <input class="edit-create" type="text" name="location.region" value="<%= event.location.region %>"/>
      </div>
-    <div class="form-field" >
+    <div class="edit form-field" >
       <label>Country</label>
-      <input type="text" name="location.country" value="<%= event.location.country %>"/>
+      <input class="edit-create"  type="text" name="location.country" value="<%= event.location.country %>"/>
     </div>
-    <div class="form-field" >
+    <div class="edit form-field" >
       <label>Starting Point</label>
-      <input type="text" name="startingPoint" value="<%= event.startingPoint %>"/>
+      <input class="edit-create" type="text" name="startingPoint" value="<%= event.startingPoint %>"/>
     </div>
-    <div class="form-field" >
+    <div class="edit form-field" >
       <label>Description</label>
-      <input class="description" type="text" name="description" value="<%= event.description %>"/>
+      <input class="description edit-create"  class="description" type="text" name="description" value="<%= event.description %>"/>
     </div>
-    <div class="form-field" >
+    <div class="edit form-field" >
       <label>Difficulty level</label>
       <div class="radio-input">
         <label>Easy</label>
-        <input type="radio" id="easy" name="difficultyLevel" value="easy"/>
+        <input class="edit-create" type="radio" id="easy" name="difficultyLevel" value="easy"/>
       </div>
       <div class="radio-input">
         <label>Medium</label>
-        <input type="radio" id="medium" name="difficultyLevel" value="medium"/>
+        <input class="edit-create" type="radio" id="medium" name="difficultyLevel" value="medium"/>
       </div>
       <div class="radio-input">
         <label>Hard</label>
-        <input type="radio" id="hard" name="difficultyLevel" value="hard"/>
+        <input class="edit-create" type="radio" id="hard" name="difficultyLevel" value="hard"/>
       </div> 
     </div>
-    <div class="form-field" >
+    <div class="edit form-field" >
       <label>Duration</label>
-      <input type="number" name="duration" value="<%= event.duration %>"/>
+      <input class="edit-create" type="number" name="duration" value="<%= event.duration %>"/>
     </div>
-    <div class="form-field" >
+    <div class="edit form-field" >
       <label>Distance</label>
-      <input type="number" name="distance" value="<%= event.distance %>"/>
+      <input class="edit-create" type="number" name="distance" value="<%= event.distance %>"/>
     </div>
     <div class="field submit">
       <button type="submit">Edit</button>
