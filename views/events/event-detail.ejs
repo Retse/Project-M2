@@ -1,5 +1,5 @@
 <nav class="event-navbar"> 
-  <p><a class="nav-link link" href="/events">Go to home page</a></p>
+  <p><a class="nav-link link" href="javascript:window.history.back();">Go back</a></p>
   <% if (event.guide[0]._id == userId) { %>
     <p><a class="nav-link link" href="/events/<%= event._id%>/edit" class="edit-event">Edit event</a></p>
     <form class="delete-event" method="POST" action='/events/<%= event._id %>/delete-event'>
