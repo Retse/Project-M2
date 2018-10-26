@@ -7,7 +7,9 @@ const middlewares = require('../middlewares/middlewares');
 const flashMessages = require('../middlewares/notifications');
 
 router.get('/', middlewares.requireUser, (req, res, next) => {
+
   Event.find().sort({ date: 1 })
+    .populate('guide')
     .then(events => {
       res.render('events/index', { events });
     })
@@ -41,7 +43,7 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
 
   if (requiredFields.includes('')) {
     req.flash('info', flashMessages.allFieldsCompleteError);
-    return res.redirect('/events/');
+    return res.redirect('/events/create');
   }
 
   const newEvent = new Event({
@@ -65,36 +67,35 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
+/* --------- GET Find Event Filter --------- */
+
+router.get('/list', middlewares.requireUser, (req, res, next) => {
+  const region = req.query.region;
+
+  Event.find({ 'location.region': region })
+    .then(events => {
+      res.render('events/list', { events });
+    })
+    .catch(next);
+});
+
 /* --------- GET Event Detail --------- */
+
 router.get('/:_id', (req, res, next) => {
+  const userId = req.session.currentUser._id;
   const id = req.params._id;
+
   // const { _id: id } = req.params
   //  if (ObjectId.isValid(id)) {
   Event.findById(id)
     .populate('participants')
     .populate('guide')
     .then((event) => {
-      res.render('events/event-detail', { event });
+      res.render('events/event-detail', { 'event': event, 'userId': userId });
     })
     .catch(next);
-  // }
+  // }x
   // next();
-});
-
-/* --------- POST Find Event Filter --------- */
-router.post('/list', middlewares.requireUser, (req, res, next) => {
-  req.session.city = req.body.city;
-  res.redirect('/events/list');
-});
-
-router.get('/list', middlewares.requireUser, (req, res, next) => {
-  const city = req.session.city;
-
-  Event.find({ 'location.city': city })
-    .then(events => {
-      res.render('events/list', { events });
-    })
-    .catch(next);
 });
 
 /* --------- GET Edit Event --------- */
@@ -121,6 +122,13 @@ router.get('/:_id/edit', middlewares.requireUser, (req, res, next) => {
 router.post('/:_id', middlewares.requireUser, (req, res, next) => {
   const event = req.body;
   const id = req.params._id;
+  const { title, date, description } = req.body;
+  const requiredFields = [ title, date, description ];
+
+  if (requiredFields.includes('')) {
+    req.flash('info', flashMessages.allFieldsCompleteError);
+    return res.redirect(`/events/${id}`);
+  }
 
   Event.findByIdAndUpdate(id, event)
     .then(event => {
@@ -198,21 +206,3 @@ router.post('/:_id/delete-event', middlewares.requireUser, (req, res, next) => {
 });
 
 module.exports = router;
-
-// router.get('/:_id/edit', middlewares.requireUser, (req, res, next) => {
-//   const eventId = req.params._id;
-//   const userId = req.session.currentUser._id;
-//   Event.findById(eventId)
-//     .then(event => {
-//       const isGuide = event.guide.some(guide => {
-//         return guide.equals(userId);
-//       });
-//       if (isGuide) {
-//         res.render('events/edit', { event: event });
-//       } else {
-//         req.flash('info', flashMessages.cantEdit);
-//         res.redirect(`/events/${eventId}`);
-//       }
-//     })
-//     .catch(next);
-// });

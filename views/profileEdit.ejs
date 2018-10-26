@@ -1,19 +1,22 @@
+<nav class="event-navbar"> 
+<p><a class="nav-link link" href="../users">Go back</a></p>
+</nav>
 <section id="profileEdit">
-<a href="../events/">Go Back</a>
+<h2 class="edit-title">Edit your profile</h2>
   <form class="profile-form" method="POST" action="/users/profileEdit" enctype="multipart/form-data">
-    <div class="form-field" >
+    <div class="edit form-field" >
       <label>Image</label>
-      <input type="file" name="image"/>
+      <input class="edit-create" type="file" name="image"/>
     </div>
-    <div class="form-field" >
+    <div class="edit form-field" >
       <label>Tagline</label>
-      <input type="text" name="tagline" value="<%= user.tagline  %>"/>
+      <input class="edit-create" type="text" name="tagline" value="<%= user.tagline  %>"/>
     </div>
-    <div class="form-field" >
+    <div class="edit form-field" >
       <label>About Me</label>
-      <input type="text" name="aboutme" value="<%= user.aboutme %>"/>
+      <input class="edit-create" type="text" name="aboutme" value="<%= user.aboutme %>"/>
      </div>
-     <div class="field submit">
+     <div class="field submit-profile">
       <button class="edit-profile" type="submit">Edit</button>
     </div>
   </form>

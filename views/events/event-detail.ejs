@@ -1,18 +1,18 @@
 <nav class="event-navbar"> 
   <p><a class="nav-link link" href="/events">Go back</a></p>
-  <p><a class="nav-link link" href="/events/<%= event._id%>/edit" class="edit-event">Edit event</a></p>
-  <form class="delete-event" method="POST" action='/events/<%= event._id %>/delete-event'>
-    <div class="container  link-container">
-      <button class="del-event" type="submit">Delete event</button>
-    </div>
-  </form>
+  <% if (event.guide[0]._id == userId) { %>
+    <p><a class="nav-link link" href="/events/<%= event._id%>/edit" class="edit-event">Edit event</a></p>
+    <form class="delete-event" method="POST" action='/events/<%= event._id %>/delete-event'>
+      <div class="container  link-container">
+        <button class="del-event" type="submit">Delete event</button>
+      </div>
+    </form>
+  <% } %>
 </nav>
 <section id="event-detail">
-  <article class="event">
-   
+  <article class="event"> 
     <%- include ../partials/notifications.ejs %> 
     <h2 class="event-title"><%= event.title %></h2>
-    
     <img class="event-image" src="<%= event.image %>" alt="event image">
     <div class="info-container">
       <p class="event-info"><span class="title">Guide: </span>
@@ -20,7 +20,7 @@
           <%= user.username %>
       <% }) %>
       </p>
-      <p class="event-info date"><span class="title">Date:</span> <%= event.date %></p>
+      <p class="event-info date"><span class="title">Date:</span> <%= event.date.toDateString() %></p>
       <p class="event-info"><span class="title">Location:</span></p>
         <ul class="location-list">
           <li><span class="title">City: </span><%= event.location.city  %></li>
