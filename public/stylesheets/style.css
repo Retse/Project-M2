@@ -127,7 +127,7 @@ img.invert-color {
 .log-signup {
   /* background-color: rgb(72, 125, 48); */
   width: 100%;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
   .log-signup form {
@@ -155,7 +155,7 @@ img.invert-color {
 
   
   .log-signup .field {
-    width: 85%;
+    width: 320px;
   }
 
   .log-signup label {
@@ -233,7 +233,8 @@ button.follow {
   }
 
   div.info-profile {
-color: #3E3F40;
+    color: #3E3F40;
+    width: 100%
   }
 
   .profile-info p {
@@ -242,6 +243,11 @@ color: #3E3F40;
 
   .profile-info.container {
     font-size: 15px;
+  }
+
+  p.edit-prof {
+    background-color: #F7F4F2;
+    margin: 20px auto;
   }
 
   h3.upcomming-events {
@@ -272,10 +278,6 @@ color: #3E3F40;
   background: #707B7C;
   color: #ECF0F1;
   margin: 10px 0px
-  }
-
-  a.edit-profile {
-    text-decoration: none;
   }
 
   div.image-container {
