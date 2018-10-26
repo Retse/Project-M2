@@ -150,9 +150,6 @@ img.invert-color {
     border: none;
     font-size: 14px;
   }
-
-
-
   
   .log-signup .field {
     width: 320px;
@@ -192,9 +189,11 @@ img.invert-color {
     color: white;
   }
 
-  a.link, .toggle-signup {
+ .toggle-signup {
     color:rgb(91, 153, 72);
     text-decoration: none;
+    margin: 5px 0 10px 0;
+    color: #3C3D3B;
   }
 
 
