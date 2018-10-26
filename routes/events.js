@@ -87,7 +87,6 @@ router.get('/:_id', (req, res, next) => {
   if (currentUser) {
     userId = currentUser._id;
   }
-  // const { _id: id } = req.params
   //  if (ObjectId.isValid(id)) {
   console.log('La ruta es igual');
   Event.findById(id)
@@ -97,7 +96,7 @@ router.get('/:_id', (req, res, next) => {
       res.render('events/event-detail', { 'event': event, 'userId': userId });
     })
     .catch(next);
-  // }x
+  // }
   // next();
 });
 
