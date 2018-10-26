@@ -7,7 +7,6 @@ const middlewares = require('../middlewares/middlewares');
 const flashMessages = require('../middlewares/notifications');
 
 router.get('/', middlewares.requireUser, (req, res, next) => {
-
   Event.find().sort({ date: 1 })
     .then(events => {
       res.render('events/index', { events });
@@ -41,7 +40,7 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
   const requiredFields = [ title, date, city, description ];
 
   if (requiredFields.includes('')) {
-    req.flash('info', flashMessages.allFieldsCompleteError);
+    req.flash('danger', flashMessages.allFieldsCompleteError);
     return res.redirect('/events/');
   }
 
@@ -113,7 +112,7 @@ router.get('/:_id/edit', middlewares.requireUser, (req, res, next) => {
       if (isGuide) {
         res.render('events/edit', { event: event });
       } else {
-        req.flash('info', flashMessages.cantEdit);
+        req.flash('danger', flashMessages.cantEdit);
         res.redirect(`/events/${eventId}`);
       }
     })
