@@ -4,12 +4,14 @@
         <img src="<%= event.image %>" alt="event image" class="card-image" width="375px">
         <div class="container flex-column">
           <h3 class="card"><%= event.title %></h3><span></span>
-          <ul class="card location-list align-items-center">
-            <li>City: <%= event.location.city  %></li>
-            <li>Region: <%= event.location.region %></li>
-            <li>Country: <%= event.location.country  %></li>
-          </ul>
-          <p class="card">Date: <%= event.date.toDateString() %></p>
+          <p class="card"><span class="bold">Region:</span> <%= event.location.region %></p>
+          <p class="card"><span class="bold">Country:</span> <%= event.location.country %></p>
+          <p class="card"><span class="bold">Guide:</span> 
+            <%  event.guide.find( user =>{ %>
+             <%= user.username %>
+            <% }) %>
+          </p>
+          <p class="card"><span class="bold">Date:</span> <%= event.date.toDateString() %></p>
         </div>
       </div>
   </article>

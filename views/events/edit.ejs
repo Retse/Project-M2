@@ -5,7 +5,7 @@
 <section id="events-edit">
   <form class="edit-form edit-prof" method="POST" action="/events/<%= event._id %>">
     <div class="edit form-field" >
-      <label>Title</label>
+      <label>Title *</label>
       <input class="edit-create" type="text" name="title" value="<%= event.title %>"/>
     </div>
     <div class="edit form-field" >
@@ -13,7 +13,7 @@
       <input class="edit-create" type="text" name="image" value="<%= event.image %>"/>
     </div>
     <div class="edit form-field" >
-      <label>Date</label>
+      <label>Date *</label>
       <input class="edit-create" type="date" name="date" value="<%= event.date %>"/>
     </div>
     <div class="edit form-field" >
@@ -33,7 +33,7 @@
       <input class="edit-create" type="text" name="startingPoint" value="<%= event.startingPoint %>"/>
     </div>
     <div class="edit form-field" >
-      <label>Description</label>
+      <label>Description *</label>
       <input class="description edit-create"  class="description" type="text" name="description" value="<%= event.description %>"/>
     </div>
     <div class="edit form-field" >
@@ -59,7 +59,7 @@
       <label>Distance</label>
       <input class="edit-create" type="number" name="distance" value="<%= event.distance %>"/>
     </div>
-    <div class="field submit">
+    <div class="field submit-event-edit">
       <button class="edit-event" type="submit">Edit</button>
     </div>
   </form>

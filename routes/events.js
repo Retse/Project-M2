@@ -8,6 +8,7 @@ const flashMessages = require('../middlewares/notifications');
 
 router.get('/', middlewares.requireUser, (req, res, next) => {
   Event.find().sort({ date: 1 })
+    .populate('guide')
     .then(events => {
       res.render('events/index', { events });
     })
@@ -41,7 +42,7 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
 
   if (requiredFields.includes('')) {
     req.flash('info', flashMessages.allFieldsCompleteError);
-    return res.redirect('/events/');
+    return res.redirect('/events/create');
   }
 
   const newEvent = new Event({
@@ -65,7 +66,7 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
-/* --------- POST Find Event Filter --------- */
+/* --------- GET Find Event Filter --------- */
 
 router.get('/list', middlewares.requireUser, (req, res, next) => {
   const region = req.query.region;
@@ -76,21 +77,6 @@ router.get('/list', middlewares.requireUser, (req, res, next) => {
     })
     .catch(next);
 });
-
-// router.post('/list', middlewares.requireUser, (req, res, next) => {
-//   req.session.city = req.body.city;
-//   res.redirect('/events/list');
-// });
-
-// router.get('/list', middlewares.requireUser, (req, res, next) => {
-//   const city = req.session.city;
-
-//   Event.find({ 'location.city': city })
-//     .then(events => {
-//       res.render('events/list', { events });
-//     })
-//     .catch(next);
-// });
 
 /* --------- GET Event Detail --------- */
 
@@ -133,6 +119,13 @@ router.get('/:_id/edit', middlewares.requireUser, (req, res, next) => {
 router.post('/:_id', middlewares.requireUser, (req, res, next) => {
   const event = req.body;
   const id = req.params._id;
+  const { title, date, description } = req.body;
+  const requiredFields = [ title, date, description ];
+
+  if (requiredFields.includes('')) {
+    req.flash('info', flashMessages.allFieldsCompleteError);
+    return res.redirect(`/events/${id}`);
+  }
 
   Event.findByIdAndUpdate(id, event)
     .then(event => {

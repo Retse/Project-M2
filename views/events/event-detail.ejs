@@ -8,8 +8,7 @@
   </form>
 </nav>
 <section id="event-detail">
-  <article class="event">
-   
+  <article class="event"> 
     <%- include ../partials/notifications.ejs %> 
     <h2 class="event-title"><%= event.title %></h2>
     <img class="event-image" src="<%= event.image %>" alt="event image">
@@ -19,7 +18,7 @@
           <%= user.username %>
       <% }) %>
       </p>
-      <p class="event-info date"><span class="title">Date:</span> <%= event.date %></p>
+      <p class="event-info date"><span class="title">Date:</span> <%= event.date.toDateString() %></p>
       <p class="event-info"><span class="title">Location:</span></p>
         <ul class="location-list">
           <li><span class="title">City: </span><%= event.location.city  %></li>

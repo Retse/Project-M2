@@ -1,7 +1,6 @@
 <section id="events-create">
-  <nav class="event-navbar"> 
-    <p><a class="nav-link link" href="../events">Go back</a></p>
-  </nav>
+  <%- include ../partials/events/events-navbar.ejs %> 
+  <%- include ../partials/notifications.ejs %> 
   <form class="create-form" method="POST" action="/events/create">
     <div class="edit form-field" >
       <label>Title *</label>

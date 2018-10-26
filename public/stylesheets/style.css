@@ -437,6 +437,10 @@ span.title {
   margin-bottom: 20%;
 }
 
+ul.location-list {
+  color: #3E3F40;
+}
+
 ul.users-list {
   text-align: center;
   font-size: 16px;
@@ -526,8 +530,7 @@ div.radio-input {
 
 div.submit-create {
   text-align: center;
-  margin-top: -5px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 h2.edit-title {
@@ -538,7 +541,7 @@ section#profileEdit {
   padding: 10px 15px 0 15px;
 }
 
-div.submit-profile {
+div.submit-profile, div.submit-event-edit {
   text-align: center;
   margin-top: 20px;
 }
@@ -548,7 +551,7 @@ section#events-edit {
 }
 
 form.edit-prof {
-  margin-bottom: 85px;
+  margin-bottom: 55px;
 }
 
 /* ------------ Error View 500 ----------------*/
@@ -599,22 +602,21 @@ article.event-card {
 h3.card {
   color: #F7F4F2;;
 }
-ul.location-list, ul.users-list {
-  color: #3E3F40;
-}
+
 .card {
   padding-left: 10px;
-  margin: 2px 0;
-}
-
-.location-list li {
-  padding: 3px 0;
+  margin: 5px 0;
+  color: #3E3F40;
 }
 
 a.card {
   text-align: right;
   text-decoration: none;
   padding-top: 4px;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 /* ------ hello user partial -------- */
