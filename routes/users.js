@@ -42,7 +42,7 @@ router.post('/profileEdit', middlewares.requireUser, upload.single('image'), (re
   let image;
 
   if (req.file) {
-    image = req.file.url;
+    image = req.file.secure_url;
   } else {
     image = req.session.currentUser.image;
   }
@@ -56,7 +56,7 @@ router.post('/profileEdit', middlewares.requireUser, upload.single('image'), (re
 });
 
 /* --------- GET See other user Profile --------- */
-router.get('/:_id', (req, res, next) => {
+router.get('/:_id', middlewares.requireUser, (req, res, next) => {
   const id = req.params._id;
   const currentUserId = req.session.currentUser._id;
 
