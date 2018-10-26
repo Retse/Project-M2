@@ -65,7 +65,35 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
+/* --------- POST Find Event Filter --------- */
+
+router.get('/list', middlewares.requireUser, (req, res, next) => {
+  const region = req.query.region;
+
+  Event.find({ 'location.region': region })
+    .then(events => {
+      res.render('events/list', { events });
+    })
+    .catch(next);
+});
+
+// router.post('/list', middlewares.requireUser, (req, res, next) => {
+//   req.session.city = req.body.city;
+//   res.redirect('/events/list');
+// });
+
+// router.get('/list', middlewares.requireUser, (req, res, next) => {
+//   const city = req.session.city;
+
+//   Event.find({ 'location.city': city })
+//     .then(events => {
+//       res.render('events/list', { events });
+//     })
+//     .catch(next);
+// });
+
 /* --------- GET Event Detail --------- */
+
 router.get('/:_id', (req, res, next) => {
   const id = req.params._id;
   // const { _id: id } = req.params
@@ -79,22 +107,6 @@ router.get('/:_id', (req, res, next) => {
     .catch(next);
   // }
   // next();
-});
-
-/* --------- POST Find Event Filter --------- */
-router.post('/list', middlewares.requireUser, (req, res, next) => {
-  req.session.city = req.body.city;
-  res.redirect('/events/list');
-});
-
-router.get('/list', middlewares.requireUser, (req, res, next) => {
-  const city = req.session.city;
-
-  Event.find({ 'location.city': city })
-    .then(events => {
-      res.render('events/list', { events });
-    })
-    .catch(next);
 });
 
 /* --------- GET Edit Event --------- */

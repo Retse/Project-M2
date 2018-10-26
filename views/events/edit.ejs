@@ -1,8 +1,9 @@
-<section id="events-edit">
 <nav class="event-navbar"> 
-<p><a class="nav-link link" href="/events/<%= event._id %>">Go back</a></p>
+  <p><a class="nav-link link" href="/events/<%= event._id %>">Go back</a></p>
 </nav>
-  <form class="edit-form" method="POST" action="/events/<%= event._id %>">
+
+<section id="events-edit">
+  <form class="edit-form edit-prof" method="POST" action="/events/<%= event._id %>">
     <div class="edit form-field" >
       <label>Title</label>
       <input class="edit-create" type="text" name="title" value="<%= event.title %>"/>
@@ -59,8 +60,8 @@
       <input class="edit-create" type="number" name="distance" value="<%= event.distance %>"/>
     </div>
     <div class="field submit">
-      <button type="submit">Edit</button>
+      <button class="edit-event" type="submit">Edit</button>
     </div>
   </form>
-  <%- include ../partials/navbar.ejs %>
 </section>
+<%- include ../partials/navbar.ejs %>
