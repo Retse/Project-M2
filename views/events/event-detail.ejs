@@ -1,11 +1,13 @@
 <nav class="event-navbar"> 
   <p><a class="nav-link link" href="/events">Go back</a></p>
-  <p><a class="nav-link link" href="/events/<%= event._id%>/edit" class="edit-event">Edit event</a></p>
-  <form class="delete-event" method="POST" action='/events/<%= event._id %>/delete-event'>
-    <div class="container  link-container">
-      <button class="del-event" type="submit">Delete event</button>
-    </div>
-  </form>
+  <% if (event.guide[0]._id == userId) { %>
+    <p><a class="nav-link link" href="/events/<%= event._id%>/edit" class="edit-event">Edit event</a></p>
+    <form class="delete-event" method="POST" action='/events/<%= event._id %>/delete-event'>
+      <div class="container  link-container">
+        <button class="del-event" type="submit">Delete event</button>
+      </div>
+    </form>
+  <% } %>
 </nav>
 <section id="event-detail">
   <article class="event"> 
