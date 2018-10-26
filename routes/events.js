@@ -154,7 +154,7 @@ router.post('/:_id/join', middlewares.requireUser, (req, res, next) => {
         event.participants.push(ObjectId(userId));
         event.save()
           .then(item => {
-            req.flash('danger', flashMessages.joinEvent);
+            req.flash('success', flashMessages.joinEvent);
             res.redirect(`/events/${eventId}`);
           })
           .catch(next);
