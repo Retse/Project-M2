@@ -299,12 +299,20 @@ color: #3E3F40;
   }
 
   section.profile-info {
-    background:rgba(91, 153, 72, 0.8);;
+    background:rgba(91, 153, 72, 0.8);
   }
 
   div.follow {
     padding-bottom: 80px;
   }
+
+
+/* ----------------Other User profile ----------------------*/
+
+.notication-profile {
+  height: 30px;
+}
+
 
 /* ------------------------------------------- Errors Views ------------------------------------*/
 

@@ -90,7 +90,7 @@ router.post('/:_id/follow', (req, res, next) => {
       });
 
       if (isFollowing) {
-        req.flash('info', flashMessages.alreadyFollowing);
+        req.flash('danger', flashMessages.alreadyFollowing);
         return res.redirect(`/users/${userToFollowId}`);
       }
 
