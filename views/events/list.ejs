@@ -1,6 +1,6 @@
-<section id="events-list">
 <%- include ../partials/events/events-navbar.ejs %> 
-<div>
+<section id="events-list">
+<div class="events-container">
   <% events.forEach(event => { %>
     <%- include ../partials/events/eventPartial.ejs %>
   <% }) %>  

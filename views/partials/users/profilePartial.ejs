@@ -2,14 +2,10 @@
 <div class="image-container">
 <img src="<%= user.image %>" alt="profile picture" srcset="">
 </div>
-    <div class="info-profile  container  flex-column ">
-      <p class="username"><strong></strong> <%= user.username %></p>
-      <p><strong>Tagline:</strong> <%= user.tagline %></p>
-      <p><strong>About me:</strong> <%= user.aboutme %></p>
-    </div>
-    <div class="image-container">
-      <button class="edit-profile"><a href="/users/profileEdit" class="edit-profile">Edit your profile</a></button>
-
-    </div>
+<div class="info-profile  container  flex-column ">
+  <p class="username"><strong></strong> <%= user.username %></p>
+  <p><strong>Tagline:</strong> <%= user.tagline %></p>
+  <p><strong>About me:</strong> <%= user.aboutme %></p>
+</div>
+<p class="btn edit-prof"><a href="/users/profileEdit">Edit Profile</a></p>  
 </article>
-    
