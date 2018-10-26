@@ -36,6 +36,9 @@ a.go-back {
   padding-top: 10px;
 }
 
+a {
+  text-decoration: none;
+}
 p {
   color: #3E3F40;
 }
