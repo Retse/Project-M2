@@ -290,12 +290,20 @@ button.follow {
   }
 
   section.profile-info {
-    background:rgba(91, 153, 72, 0.8);;
+    background:rgba(91, 153, 72, 0.8);
   }
 
   div.follow {
     padding-bottom: 80px;
   }
+
+
+/* ----------------Other User profile ----------------------*/
+
+.notication-profile {
+  height: 30px;
+}
+
 
 /* ------------------------------------------- Errors Views ------------------------------------*/
 
@@ -571,13 +579,28 @@ form.edit-prof {
 
 /*-------------------- Flash messages Partial  ----------------------*/
 .flash-messages {
-  color: #5B9948;
   margin-top: 5px;
   font-size: 18px;
 }
 
 .alert {
   text-align: center;
+}
+
+.alert-danger{
+  color: red;
+}
+
+.alert-info {
+  color: blue;
+}
+
+.alert-success {
+  color: green;
+}
+
+.alert-warning {
+  color: orange;
 }
 
 /*---------------------------  Partials -----------------------------*/
@@ -593,6 +616,10 @@ article.event-card {
   border: solid 1px #3C3D3B;
   box-shadow: 3px 3px 5px #3C3D3B;
   background: rgba(91, 153, 72, 0.6);
+}
+
+.guide-container{
+  margin-left: 30px;
 }
 
 .card-image {

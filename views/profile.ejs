@@ -7,9 +7,10 @@
     <!-- To include events partials -->
     <div class="flex-wrap  upcomming-events  container">
       <%- include partials/users/userUpcomingEvents.ejs %>
-    </div>
-    <div class="  follow  container">
+    </div class="container flex-wrap">
+    <div class="  follow  container  flex-wrap">
       <h3 class="follow">Followers</h3>
+      <%- include partials/users/followers.ejs %>
     </div>
 </section>
 <%- include partials/navbar.ejs %>

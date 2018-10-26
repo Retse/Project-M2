@@ -7,7 +7,6 @@ const middlewares = require('../middlewares/middlewares');
 const flashMessages = require('../middlewares/notifications');
 
 router.get('/', middlewares.requireUser, (req, res, next) => {
-
   Event.find().sort({ date: 1 })
     .populate('guide')
     .then(events => {
@@ -42,8 +41,8 @@ router.post('/create', middlewares.requireUser, (req, res, next) => {
   const requiredFields = [ title, date, city, description ];
 
   if (requiredFields.includes('')) {
-    req.flash('info', flashMessages.allFieldsCompleteError);
-    return res.redirect('/events/create');
+    req.flash('danger', flashMessages.allFieldsCompleteError);
+    return res.redirect('/events/');
   }
 
   const newEvent = new Event({
@@ -82,11 +81,14 @@ router.get('/list', middlewares.requireUser, (req, res, next) => {
 /* --------- GET Event Detail --------- */
 
 router.get('/:_id', (req, res, next) => {
-  const userId = req.session.currentUser._id;
+  const currentUser = req.session.currentUser;
   const id = req.params._id;
-
-  // const { _id: id } = req.params
+  let userId;
+  if (currentUser) {
+    userId = currentUser._id;
+  }
   //  if (ObjectId.isValid(id)) {
+  console.log('La ruta es igual');
   Event.findById(id)
     .populate('participants')
     .populate('guide')
@@ -94,7 +96,7 @@ router.get('/:_id', (req, res, next) => {
       res.render('events/event-detail', { 'event': event, 'userId': userId });
     })
     .catch(next);
-  // }x
+  // }
   // next();
 });
 
@@ -111,7 +113,7 @@ router.get('/:_id/edit', middlewares.requireUser, (req, res, next) => {
       if (isGuide) {
         res.render('events/edit', { event: event });
       } else {
-        req.flash('info', flashMessages.cantEdit);
+        req.flash('danger', flashMessages.cantEdit);
         res.redirect(`/events/${eventId}`);
       }
     })

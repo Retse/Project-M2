@@ -12,6 +12,7 @@ const upload = require('../services/cloudinary.js');
 router.get('/', middlewares.requireUser, (req, res, next) => {
   const userId = req.session.currentUser._id;
   User.findById(userId)
+    .populate('followers')
     .then(user => {
       Event.find({
         participants: ObjectId(userId)
@@ -90,7 +91,7 @@ router.post('/:_id/follow', (req, res, next) => {
       });
 
       if (isFollowing) {
-        req.flash('info', flashMessages.alreadyFollowing);
+        req.flash('danger', flashMessages.alreadyFollowing);
         return res.redirect(`/users/${userToFollowId}`);
       }
 

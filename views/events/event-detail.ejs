@@ -15,11 +15,18 @@
     <h2 class="event-title"><%= event.title %></h2>
     <img class="event-image" src="<%= event.image %>" alt="event image">
     <div class="info-container">
-      <p class="event-info"><span class="title">Guide: </span>
-        <%  event.guide.find( user =>{ %>
-          <%= user.username %>
+     
+      <%  event.guide.find( user =>{ %>
+        <div class="guide-container">
+            <span class="title">Guide: </span>
+              <a class="user-link link" href="/users/<%= user._id %>">
+                <div class="container flex-column">
+                  <img class="user-icon" src="<%= user.image %>" alt="user image"></li>
+                  <span class="user-icon-tag"><%= user.username %>&emsp;</span>
+                </div> 
+              </a>
+        </div>
       <% }) %>
-      </p>
       <p class="event-info date"><span class="title">Date:</span> <%= event.date.toDateString() %></p>
       <p class="event-info"><span class="title">Location:</span></p>
         <ul class="location-list">
@@ -33,7 +40,7 @@
       <p class="event-info"><span class="title">Duration:</span> <%= event.duration %> hours</p>
       <p class="event-info"><span class="title">Distance:</span> <%= event.distance %> km</p>
       <p class="event-info"><span class="title">Participants:</span></p>
-      <div class="users-list">  
+      <div class="users-list  flex-wrap">  
       <% event.participants.forEach(user => { %>
         <div class="user-info">
           <a class="user-link link" href="/users/<%= user._id %>">
